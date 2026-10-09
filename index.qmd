@@ -1,0 +1,38 @@
+---
+title: "Python勉強会 資料置き場"
+author: yama
+format: 
+  html: 
+    toc: true
+    number-sections: false
+lang: ja
+---
+
+このサイトは、Python勉強会の資料置き場です。
+
+
+
+## 第１回 Pythonとは 基本文法１（変数・定数・データ型）
+
+  [第１講ー１　Pythonの仕組み メモリの取り方](1py.qmd)
+
+  [第１講ー２　基本文法１（変数・定数・データ型）](1pya.qmd)
+
+## 第２回 基本文法２（演算子・条件分岐・関数）
+
+  [第２講ー１　演算子](2py.qmd)
+
+
+## 共同で勉強会をしている先生方の資料
+
+他の先生方と合同で実施しています。私の資料では、あまりにつたないので、ぜひ他の先生の資料もご参照ください。
+
+[Ryunosuke Morishita氏の専用サイト](https://ryunosuke-morishita.github.io/pythonmat/basic01.html)
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+---
+title: "Python勉強会 参考文献"
+author: yama
+format: 
+  html: 
+    toc: true
+    number-sections: false
+lang: ja
+---

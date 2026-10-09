@@ -1,0 +1,18 @@
+project:
+  type: book
+  render: 
+    - "*.qmd"
+
+book: 
+  chapters: 
+    - index.qmd
+    - part: "第１回 Pythonとは 基本文法１"
+      chapters: 
+        - 1py.qmd
+        - 1pya.qmd
+    - part: "第２回 条件分岐 関数"
+      chapters: 
+        - 2py.qmd
+    - references.qmd
+
+
