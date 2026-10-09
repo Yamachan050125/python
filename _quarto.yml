@@ -1,7 +1,6 @@
 project:
   type: book
-  render: 
-    - "*.qmd"
+  output-dir: docs
 
 book: 
   chapters: 
