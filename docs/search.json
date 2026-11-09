@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Python勉強会 資料置き場",
     "section": "",
-    "text": "第１回 Pythonとは 基本文法１（変数・定数・データ型）\nこのサイトは、Python勉強会の資料置き場です。\n第１講ー１　Pythonの仕組み メモリの取り方\n第１講ー２　基本文法１（変数・定数・データ型）",
+    "text": "第１回 Pythonとは 基本文法（変数・定数・データ型）・演算子\nこのサイトは、Python勉強会の資料置き場です。\n第１講ー１　Pythonの仕組み メモリの取り方\n第１講ー２　基本文法（変数・定数・データ型）\n第１講ー３　演算子",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python勉強会 資料置き場</span>"
     ]
@@ -335,6 +335,16 @@
     "crumbs": [
       "第２回 条件分岐 関数",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>制御構文２ 繰り返し処理</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#第２回-基本文法２条件分岐関数",
+    "href": "index.html#第２回-基本文法２条件分岐関数",
+    "title": "Python勉強会 資料置き場",
+    "section": "第２回 基本文法２（条件分岐・関数）",
+    "text": "第２回 基本文法２（条件分岐・関数）\n第２講ー１　条件分岐\n第２講ー２　繰り返し処理",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python勉強会 資料置き場</span>"
     ]
   }
 ]

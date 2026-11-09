@@ -1,6 +1,6 @@
 ---
 title: "Python勉強会 参考文献"
-author: yama
+author: とりけらとっぷす
 format: 
   html: 
     toc: true

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,16 +10,10 @@
 
 <title>Python勉強会 資料置き場</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -40,14 +34,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="./1pya.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c574c73dd0d0ff61020859ffc61752ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d9ea66fcd6c317012447f26e9c021348.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -126,19 +121,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1pya.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">第１講ー１　Pythonの仕組み メモリの取り方</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pythonの仕組み メモリの取り方</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1pyb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">第１講ー２　基本文法</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">基本文法</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1pyc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">第２講-1　演算子</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">演算子</span></span></a>
   </div>
 </li>
       </ul>
@@ -155,7 +150,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2pya.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">第２講ー１　条件分岐</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">制御構文１ 条件分岐</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2pyb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">制御構文２ 繰り返し処理</span></span></a>
   </div>
 </li>
       </ul>
@@ -163,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span></a>
   </div>
 </li>
     </ul>
@@ -176,8 +177,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#第１回-pythonとは-基本文法１変数定数データ型" id="toc-第１回-pythonとは-基本文法１変数定数データ型" class="nav-link active" data-scroll-target="#第１回-pythonとは-基本文法１変数定数データ型">第１回 Pythonとは 基本文法１（変数・定数・データ型）</a></li>
-  <li><a href="#第２回-基本文法２演算子条件分岐関数" id="toc-第２回-基本文法２演算子条件分岐関数" class="nav-link" data-scroll-target="#第２回-基本文法２演算子条件分岐関数">第２回 基本文法２（演算子・条件分岐・関数）</a></li>
+  <li><a href="#第１回-pythonとは-基本文法変数定数データ型演算子" id="toc-第１回-pythonとは-基本文法変数定数データ型演算子" class="nav-link active" data-scroll-target="#第１回-pythonとは-基本文法変数定数データ型演算子">第１回 Pythonとは 基本文法（変数・定数・データ型）・演算子</a></li>
+  <li><a href="#第２回-基本文法２条件分岐関数" id="toc-第２回-基本文法２条件分岐関数" class="nav-link" data-scroll-target="#第２回-基本文法２条件分岐関数">第２回 基本文法２（条件分岐・関数）</a></li>
   <li><a href="#共同で勉強会をしている先生方の資料" id="toc-共同で勉強会をしている先生方の資料" class="nav-link" data-scroll-target="#共同で勉強会をしている先生方の資料">共同で勉強会をしている先生方の資料</a></li>
   </ul>
 </nav>
@@ -211,14 +212,16 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>このサイトは、Python勉強会の資料置き場です。</p>
-<section id="第１回-pythonとは-基本文法１変数定数データ型" class="level2">
-<h2 class="anchored" data-anchor-id="第１回-pythonとは-基本文法１変数定数データ型">第１回 Pythonとは 基本文法１（変数・定数・データ型）</h2>
-<p><a href="1py.qmd">第１講ー１　Pythonの仕組み メモリの取り方</a></p>
-<p><a href="./1pya.html">第１講ー２　基本文法１（変数・定数・データ型）</a></p>
+<section id="第１回-pythonとは-基本文法変数定数データ型演算子" class="level2">
+<h2 class="anchored" data-anchor-id="第１回-pythonとは-基本文法変数定数データ型演算子">第１回 Pythonとは 基本文法（変数・定数・データ型）・演算子</h2>
+<p><a href="./1pya.html">第１講ー１　Pythonの仕組み メモリの取り方</a></p>
+<p><a href="./1pyb.html">第１講ー２　基本文法（変数・定数・データ型）</a></p>
+<p><a href="./1pyc.html">第１講ー３　演算子</a></p>
 </section>
-<section id="第２回-基本文法２演算子条件分岐関数" class="level2">
-<h2 class="anchored" data-anchor-id="第２回-基本文法２演算子条件分岐関数">第２回 基本文法２（演算子・条件分岐・関数）</h2>
-<p><a href="2py.qmd">第２講ー１　演算子</a></p>
+<section id="第２回-基本文法２条件分岐関数" class="level2">
+<h2 class="anchored" data-anchor-id="第２回-基本文法２条件分岐関数">第２回 基本文法２（条件分岐・関数）</h2>
+<p><a href="./2pya.html">第２講ー１　条件分岐</a></p>
+<p><a href="./2pyb.html">第２講ー２　繰り返し処理</a></p>
 </section>
 <section id="共同で勉強会をしている先生方の資料" class="level2">
 <h2 class="anchored" data-anchor-id="共同で勉強会をしている先生方の資料">共同で勉強会をしている先生方の資料</h2>
@@ -633,8 +636,8 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./1pya.html" class="pagination-link" aria-label="第１講ー１　Pythonの仕組み メモリの取り方">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">第１講ー１　Pythonの仕組み メモリの取り方</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./1pya.html" class="pagination-link" aria-label="Pythonの仕組み メモリの取り方">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pythonの仕組み メモリの取り方</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
