@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Yamato Fujii">
+<meta name="author" content="とりけらとっぷす">
 
-<title>3&nbsp; 第１講ー２　基本文法</title>
+<title>Pythonの仕組み メモリの取り方</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -62,7 +62,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -72,8 +91,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./2py.html" rel="next">
-<link href="./1py.html" rel="prev">
+<link href="./1pyb.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -112,35 +131,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -153,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1py.html">第１回 Pythonとは 基本文法１</a></li><li class="breadcrumb-item"><a href="./1pya.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">第１講ー２　基本文法</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1pya.html">第１回 Pythonとは 基本文法 演算子</a></li><li class="breadcrumb-item"><a href="./1pya.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pythonの仕組み メモリの取り方</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -182,7 +172,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">第１回 Pythonとは 基本文法１</span></a>
+ <span class="menu-text">第１回 Pythonとは 基本文法 演算子</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -190,14 +180,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1py.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">第１講ー１　Pythonの仕組み メモリの取り方</span></span></a>
+  <a href="./1pya.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pythonの仕組み メモリの取り方</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1pya.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">第１講ー２　基本文法</span></span></a>
+  <a href="./1pyb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">基本文法</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1pyc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">演算子</span></span></a>
   </div>
 </li>
       </ul>
@@ -213,8 +209,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2py.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">第２講-1　演算子</span></span></a>
+  <a href="./2pya.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">条件分岐</span></span></a>
   </div>
 </li>
       </ul>
@@ -222,7 +218,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span></a>
   </div>
 </li>
     </ul>
@@ -235,26 +231,17 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#コメント" id="toc-コメント" class="nav-link active" data-scroll-target="#コメント"><span class="header-section-number">3.1</span> コメント</a></li>
-  <li><a href="#変数" id="toc-変数" class="nav-link" data-scroll-target="#変数"><span class="header-section-number">3.2</span> 変数</a>
+  <li><a href="#what-is-python" id="toc-what-is-python" class="nav-link active" data-scroll-target="#what-is-python">What is Python?</a>
   <ul class="collapse">
-  <li><a href="#命名規則" id="toc-命名規則" class="nav-link" data-scroll-target="#命名規則"><span class="header-section-number">3.2.1</span> 命名規則</a></li>
-  <li><a href="#変数の破棄" id="toc-変数の破棄" class="nav-link" data-scroll-target="#変数の破棄"><span class="header-section-number">3.2.2</span> 変数の破棄</a></li>
+  <li><a href="#マシン語と高級言語" id="toc-マシン語と高級言語" class="nav-link" data-scroll-target="#マシン語と高級言語">マシン語と高級言語</a></li>
+  <li><a href="#コンパイル言語とインタプリター言語" id="toc-コンパイル言語とインタプリター言語" class="nav-link" data-scroll-target="#コンパイル言語とインタプリター言語">コンパイル言語とインタプリター言語</a></li>
+  <li><a href="#オブジェクト指向言語" id="toc-オブジェクト指向言語" class="nav-link" data-scroll-target="#オブジェクト指向言語">オブジェクト指向言語</a></li>
+  <li><a href="#節のまとめ" id="toc-節のまとめ" class="nav-link" data-scroll-target="#節のまとめ">1節のまとめ</a></li>
   </ul></li>
-  <li><a href="#定数" id="toc-定数" class="nav-link" data-scroll-target="#定数"><span class="header-section-number">3.3</span> 定数</a></li>
-  <li><a href="#データ型" id="toc-データ型" class="nav-link" data-scroll-target="#データ型"><span class="header-section-number">3.4</span> データ型</a>
+  <li><a href="#pythonにおける変数" id="toc-pythonにおける変数" class="nav-link" data-scroll-target="#pythonにおける変数">Pythonにおける変数</a>
   <ul class="collapse">
-  <li><a href="#論理型-bool" id="toc-論理型-bool" class="nav-link" data-scroll-target="#論理型-bool"><span class="header-section-number">3.4.1</span> 論理型 <code>bool</code></a></li>
-  <li><a href="#整数型-int" id="toc-整数型-int" class="nav-link" data-scroll-target="#整数型-int"><span class="header-section-number">3.4.2</span> 整数型 <code>int</code></a></li>
-  <li><a href="#浮動小数点型-float" id="toc-浮動小数点型-float" class="nav-link" data-scroll-target="#浮動小数点型-float"><span class="header-section-number">3.4.3</span> 浮動小数点型 <code>float</code></a></li>
-  <li><a href="#複素数型-complex" id="toc-複素数型-complex" class="nav-link" data-scroll-target="#複素数型-complex"><span class="header-section-number">3.4.4</span> 複素数型 <code>complex</code></a></li>
-  <li><a href="#文字列型" id="toc-文字列型" class="nav-link" data-scroll-target="#文字列型"><span class="header-section-number">3.4.5</span> 文字列型</a></li>
-  <li><a href="#リスト" id="toc-リスト" class="nav-link" data-scroll-target="#リスト"><span class="header-section-number">3.4.6</span> リスト</a></li>
-  </ul></li>
-  <li><a href="#入出力" id="toc-入出力" class="nav-link" data-scroll-target="#入出力"><span class="header-section-number">3.5</span> 入出力</a>
-  <ul class="collapse">
-  <li><a href="#出力" id="toc-出力" class="nav-link" data-scroll-target="#出力"><span class="header-section-number">3.5.1</span> 出力</a></li>
-  <li><a href="#f文字列" id="toc-f文字列" class="nav-link" data-scroll-target="#f文字列"><span class="header-section-number">3.5.2</span> f文字列</a></li>
+  <li><a href="#pythonの変数は箱ではなく名札" id="toc-pythonの変数は箱ではなく名札" class="nav-link" data-scroll-target="#pythonの変数は箱ではなく名札">Pythonの変数は箱ではなく名札</a></li>
+  <li><a href="#問題点" id="toc-問題点" class="nav-link" data-scroll-target="#問題点">問題点</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -262,9 +249,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1py.html">第１回 Pythonとは 基本文法１</a></li><li class="breadcrumb-item"><a href="./1pya.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">第１講ー２　基本文法</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1pya.html">第１回 Pythonとは 基本文法 演算子</a></li><li class="breadcrumb-item"><a href="./1pya.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pythonの仕組み メモリの取り方</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">第１講ー２　基本文法</span></h1>
+<h1 class="title"><span class="chapter-title">Pythonの仕組み メモリの取り方</span></h1>
 <p class="subtitle lead">Python勉強会</p>
 </div>
 
@@ -275,7 +262,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">作者</div>
     <div class="quarto-title-meta-contents">
-             <p>Yamato Fujii </p>
+             <p>とりけらとっぷす </p>
           </div>
   </div>
     
@@ -288,394 +275,190 @@ window.Quarto = {
 </header>
 
 
-<p>では、基本的な文法を見ていく。</p>
-<section id="コメント" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="コメント"><span class="header-section-number">3.1</span> コメント</h2>
-<p>Rを使っている皆さんは、<code>#</code>でコメントを書けることはご存知だろう。コメントはたくさん残さないと後からコードを確認するときに困るので、しっかり書くようにしよう。</p>
-<div id="4fb21a67" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># コメント</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>目標
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pythonの仕組みと他言語との違いを理解しよう。</p>
+</div>
+</div>
+<section id="what-is-python" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-python">What is Python?</h2>
+<p>Pythonは、ソフトウェアを動かすプログラムという指示書で使用する言語である。その特徴は以下の文に集約できる。</p>
+<blockquote class="blockquote">
+<p>Pythonは,高水準で動的な,インタプリタ―型のオブジェクト指向プログラミング言語です。<span class="citation" data-cites="James2021">(<a href="#ref-James2021" role="doc-biblioref">R.Payne ほか 2021年</a>)</span></p>
+</blockquote>
+<p>なんだこの文章は。何を言っているかわからないと思うので解説しよう。</p>
+<section id="マシン語と高級言語" class="level3">
+<h3 class="anchored" data-anchor-id="マシン語と高級言語">マシン語と高級言語</h3>
+<p>コンピュータは0か1でしか理解できない。このコンピュータのための0と1でしか書かれていない言語を<strong>マシン語</strong>という。</p>
+<p>しかし、人間は0か1のみを使って言語を書くことは難しい。意味わからん。ということで、人間用にしたマシン語のことを<strong>高級言語</strong>（または<strong>高水準言語</strong>）という。</p>
+</section>
+<section id="コンパイル言語とインタプリター言語" class="level3">
+<h3 class="anchored" data-anchor-id="コンパイル言語とインタプリター言語">コンパイル言語とインタプリター言語</h3>
+<p>では、上記の文章を読み解くその１　「インタプリター言語」について解説していこう。</p>
+<p>コンピュータは高級言語そのままは読み取れない。つまり、高級言語からマシン語への<strong>翻訳</strong>が必要である。この翻訳の仕方の違いが、<strong>コンパイル言語</strong>と<strong>インタプリタ―言語</strong>の違いである。</p>
+<p><strong>コンパイル言語</strong>は、コードを実行する際に、高級言語から一度マシン語へ一括翻訳（<strong>コンパイル</strong>）し、実行形式に直してから実行する仕組みである。Java, C#, C++などの言語は、このコンパイル言語にあたる。</p>
+<p>一方、Pythonが採用する<strong>インタプリター言語</strong>は、翻訳は必要であるものの、これをライターが意識する必要がない。つまり、プログラムを呼び出すと逐次自動で翻訳と実行をしてくれる言語なのである。他にもJavaScriptなどもこの形式である。この言語は、実行の際にいちいちコンパイルする必要がないので、デバックが簡単。つまり、<strong>トライアンドエラーでの開発に有用</strong>なのである。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://it-infomation.com/wp-content/uploads/2024/11/adf0fcda8b0beb55795848b6a20d8b5a.png" class="img-fluid figure-img"></p>
+<figcaption>IT-Infomation コンパイラ言語とスクリプト言語（インタプリタ言語）とは？種類や違いなどを解説！（https://it-infomation.com/compiler-vs-scripting-language/）より</figcaption>
+</figure>
+</div>
+<p>一つ文章をよみとけたね。次いきましょー！</p>
+</section>
+<section id="オブジェクト指向言語" class="level3">
+<h3 class="anchored" data-anchor-id="オブジェクト指向言語">オブジェクト指向言語</h3>
+<p>では、上記の文章を読み解くその２　「オブジェクト指向言語」について解説していこう。</p>
+<p><strong>オブジェクト指向</strong>とは</p>
+<blockquote class="blockquote">
+<p>プログラムのなかで扱う対象をモノ（オブジェクト）に例え、オブジェクトの組み合わせによってアプリを形成していく手法のこと<span class="citation" data-cites="yamada2019">(<a href="#ref-yamada2019" role="doc-biblioref"><strong>yamada2019?</strong></a>)</span>。</p>
+</blockquote>
+<p>パワーポイントで言うならば、スライドを作る時に、テキストボックスとか、図形とか貼り付けてつくる。この一つ一つが<strong>オブジェクト</strong>という。</p>
+<p>ほとんどの言語は、このオブジェクト指向言語なので、そう気にする必要はない。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ノート
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>厳密には、Pythonは純粋なオブジェクト指向言語ではない。様々な思想（<strong>パラダイム</strong>）を組み合わせているため、<strong>マルチパラダイム</strong>な言語とも言える。</p>
+</div>
 </div>
 </section>
-<section id="変数" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="変数"><span class="header-section-number">3.2</span> 変数</h2>
-<p><strong>識別子</strong>とは、お互いを識別するための名前のことである。変数は、値を保持するための識別子である。Unicode文字なら絵文字や句読点、アンダースコア以外の記号を除き利用可能だが、慣例的に英数字とアンダースコアを使う<strong>アンダースコア記法</strong>を使うことが多い。（ただし、数字で始められない）</p>
-<p>また、予約語は変数名として使えないので注意しよう。</p>
-<p>Rでは、<code>-&gt;</code>を利用して変数に値を代入することができるが、Pythonでは<code>=</code>を使う。</p>
-<div id="32a1d8c5" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Taro'</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="fl">170.5</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>is_student <span class="op">=</span> <span class="va">True</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<section id="命名規則" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="命名規則"><span class="header-section-number">3.2.1</span> 命名規則</h3>
-<p>Pythonでは単語をアンダースコアで区切るスネークケース（snake_case）が一般的である。</p>
-<div id="3259f434" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>user_name <span class="op">=</span> <span class="st">'Taro'</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(user_name)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="節のまとめ" class="level3">
+<h3 class="anchored" data-anchor-id="節のまとめ">1節のまとめ</h3>
+<p>よし。これで</p>
+<blockquote class="blockquote">
+<p>Pythonは,高水準で動的な,インタプリタ―型のオブジェクト指向プログラミング言語です。<span class="citation" data-cites="James2021">(<a href="#ref-James2021" role="doc-biblioref">R.Payne ほか 2021年</a>)</span></p>
+</blockquote>
+<p>という文章の謎が解けたであろう。</p>
+<p>つまり、<strong>高水準でとっても使いやすいトライアンドエラーのしやすい、モノを組み合わせた方式の言語</strong>ということだ。</p>
+<p>しかも、Pythonは、初学者にも使いやすいように設計された言語なのである。</p>
+<p>例えば、Hallo World! と打つとき</p>
+<p>Javaの場合</p>
+<pre class="{java}"><code>public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hallo World!");
+    }
+}</code></pre>
+<p>長すぎる。でも、Pythonの場合、</p>
+<div id="651b1f1a" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hallo World!"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Taro</code></pre>
+<pre><code>Hallo World!</code></pre>
 </div>
 </div>
+<p>これは使わない手はない。</p>
 </section>
-<section id="変数の破棄" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="変数の破棄"><span class="header-section-number">3.2.2</span> 変数の破棄</h3>
-<p><code>del</code>命令を使うことで変数を破棄することができる。</p>
-<div id="c989e2b9" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name_a <span class="op">=</span> <span class="st">"Python"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name_a) <span class="co">#結果: Python</span></span>
+</section>
+<section id="pythonにおける変数" class="level2">
+<h2 class="anchored" data-anchor-id="pythonにおける変数">Pythonにおける変数</h2>
+<p>基本文法を学ぶ前に、Pythonで重要な落とし穴があるので、そこを学ぶこととする。</p>
+<section id="pythonの変数は箱ではなく名札" class="level3">
+<h3 class="anchored" data-anchor-id="pythonの変数は箱ではなく名札">Pythonの変数は箱ではなく名札</h3>
+<p>Pythonにおけるすべてのデータは<strong>オブジェクト</strong>である。ここが肝で、CやJavaだと<strong>変数＝データを保管する箱</strong>なのだが、Pythonにおいては、変数はオブジェクトなのでただの<strong>名札</strong>なのである。</p>
+<p>例えば</p>
+<div id="e1155287" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">10</span>  <span class="co"># 10というオブジェクトを作り、aという名札を貼る</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>メモリ上にまず「10というオブジェクト（実体）」が作られ、そこに「a」という名札を貼り付ける（参照する）。</p>
+<p>変数名はそれに貼られたタグに過ぎない。つまり、<strong>名札を二つ以上つけられる</strong>のである。</p>
+<div id="66ba41b9" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> name_a</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name_a) <span class="co">#結果: NameError: name 'name_a' is not defined</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(a)) </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(b)) </span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Python</code></pre>
-</div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[4]</span><span class="ansi-green-fg">, line 5</span>
-<span class="ansi-green-fg">      1</span> name_a = <span class="ansi-yellow-fg">"Python"</span>
-<span class="ansi-green-fg">      2</span> print(name_a) <span style="font-style:italic;color:rgb(95,135,135)">#結果: Python</span>
-<span class="ansi-green-fg">      3</span> 
-<span class="ansi-green-fg">      4</span> <span style="font-weight:bold;color:rgb(0,135,0)">del</span> name_a
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">5</span> print(name_a) <span style="font-style:italic;color:rgb(95,135,135)">#結果: NameError: name 'name_a' is not defined</span>
-
-<span class="ansi-red-fg">NameError</span>: name 'name_a' is not defined</pre>
+<pre><code>1590677106448
+1590677106448</code></pre>
 </div>
 </div>
-</div>
-<p>del命令によって、name_aが消去されていることがわかる。</p>
+<p>↖数値が同じになっているはずだ。</p>
 </section>
-</section>
-<section id="定数" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="定数"><span class="header-section-number">3.3</span> 定数</h2>
-<p>変数は値を変更することができるが、定数は値を変更することができない。</p>
-<p>では、定数の例を示すため、まずは変数を使用して解説する。</p>
-<p>ある商品の税抜き価格<code>price</code>に対して、10％の消費税を掛ける計算をする。</p>
-<div id="bee2f507" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>price <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(price <span class="op">*</span> <span class="fl">1.1</span>) </span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="問題点" class="level3">
+<h3 class="anchored" data-anchor-id="問題点">問題点</h3>
+<p>これによって発生する問題が、<strong>中身を直接書き換えられるデータ型の場合に、他の変数まで連動して書き換わってしまう</strong>問題である。</p>
+<p>数値や文字列は書き変わらないようになっている。つまり、<strong>数値や文字列への名札は一個しかつけられない</strong>状態にある。そのため、この場合は事故にはならない。</p>
+<div id="3bcc8c50" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">20</span>  <span class="co"># xに20を代入（xの名札を別の「20」に貼り替えただけ）</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y)  <span class="co"># 10のまま（yは元の10を指し続けている）</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>110.00000000000001</code></pre>
+<pre><code>10</code></pre>
 </div>
 </div>
-<p>これでいいのだが、何も知らない人がこのコードを見たとき、この<code>1.1</code>が何を表しているのかわからない。値上げ率やサービス料と勘違いするかもしれない。また、消費税率が変わったら、複数あるコードのすべての<code>1.1</code>を変えるのが面倒くさい。そこで、定数を使って、<code>1.1</code>が消費税率であることを明示する。</p>
-<div id="d2f026e2" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>price <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>TAX_RATE <span class="op">=</span> <span class="fl">1.1</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(price <span class="op">*</span> TAX_RATE)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<p>正確には、</p>
+<p><code>int</code>　<code>float</code>　<code>str</code>　<code>tuple</code>　<code>frozenset</code></p>
+<p>以上は、変わるように見えて実際には新しいオブジェクトを生成しているだけ。</p>
+<p>しかし、<strong>リストや辞書は書き変わる。</strong></p>
+<div id="8d462ab8" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>list1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>list2 <span class="op">=</span> list1  <span class="co"># 同じリストに名札を2つ貼った状態</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>list1.append(<span class="dv">4</span>)  <span class="co"># list1経由で中身を変更</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(list2)  <span class="co"># [1, 2, 3, 4] になってしまう！</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>110.00000000000001</code></pre>
+<pre><code>[1, 2, 3, 4]</code></pre>
 </div>
 </div>
-</section>
-<section id="データ型" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="データ型"><span class="header-section-number">3.4</span> データ型</h2>
-<p>データ型とは、変数が保持する値の種類を表すものである。型によって利用可能な操作や扱い方が異なる。</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>分類</th>
-<th>型</th>
-<th>概要</th>
-<th>変更可能</th>
-<th>反復可能</th>
-<th>順序</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>数値</td>
-<td><code>int</code></td>
-<td>整数型</td>
-<td>×</td>
-<td>×</td>
-<td>×</td>
-</tr>
-<tr class="even">
-<td>数値</td>
-<td><code>float</code></td>
-<td>浮動小数点型</td>
-<td>×</td>
-<td>×</td>
-<td>×</td>
-</tr>
-<tr class="odd">
-<td>数値</td>
-<td><code>complex</code></td>
-<td>複素数型</td>
-<td>×</td>
-<td>×</td>
-<td>×</td>
-</tr>
-<tr class="even">
-<td>データ</td>
-<td><code>str</code></td>
-<td>文字列型</td>
-<td>×</td>
-<td>○</td>
-<td>○</td>
-</tr>
-<tr class="odd">
-<td>データ</td>
-<td><code>bytes</code></td>
-<td>バイナリデータ</td>
-<td>×</td>
-<td>○</td>
-<td>○</td>
-</tr>
-<tr class="even">
-<td>コンテナー</td>
-<td><code>list</code></td>
-<td>順序を持つリスト</td>
-<td>○</td>
-<td>○</td>
-<td>○</td>
-</tr>
-<tr class="odd">
-<td>コンテナー</td>
-<td><code>tuple</code></td>
-<td>順序を持つリスト（変更不可）</td>
-<td>×</td>
-<td>○</td>
-<td>○</td>
-</tr>
-<tr class="even">
-<td>コンテナー</td>
-<td><code>dict</code></td>
-<td>キー／値の辞書</td>
-<td>○</td>
-<td>○</td>
-<td>○</td>
-</tr>
-<tr class="odd">
-<td>コンテナー</td>
-<td><code>set</code></td>
-<td>順序を持たない値の集合</td>
-<td>○</td>
-<td>○</td>
-<td>×</td>
-</tr>
-<tr class="even">
-<td>その他</td>
-<td><code>bool</code></td>
-<td>論理型（True/False）</td>
-<td>×</td>
-<td>×</td>
-<td>×</td>
-</tr>
-<tr class="odd">
-<td>その他</td>
-<td><code>NoneType</code></td>
-<td>値なし</td>
-<td>×</td>
-<td>×</td>
-<td>×</td>
-</tr>
-</tbody>
-</table>
+<p>視覚化すると、名札を二つ付けるので、</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/2026-09-29 194731.png" class="img-fluid figure-img"></p>
+<figcaption>list1 = list2の状態</figcaption>
+</figure>
+</div>
+<p>そのあとに、list1.append(4) してしまうと、</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/2026-09-29 195027.png" class="img-fluid figure-img"></p>
+<figcaption>list1.append(4)を実行</figcaption>
+</figure>
+</div>
+<p>list1だけを変更したのにもかかわらず、list2も変わる。 list2 は何も触っていないのに増えてしまうのである。</p>
+<p><code>list</code>　<code>dict</code>　<code>set</code></p>
+<p>この３つは中身を書き換える操作を行うと 同じオブジェクトが変更される事故の元である。</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">ノート</span>用語
+<span class="screen-reader-only">ノート</span>補足　メモリの話
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>リテラル</strong>：変数に格納できる値そのもの、またはその表現方法のこと。</p>
+<p>プログラムを動かすとき、Pythonは「作業机（メモリ）の上にデータを置くスペース」を確保する。</p>
+<p><strong>データを作る</strong>　例: <code>10</code> という数値を机の上（メモリ）に置く。</p>
+<p><strong>住所（アドレス）がつく</strong>　机の上にはマス目（番地）があり、「机の右から3番目、上から5番目」のように場所が決まる。</p>
+<p><strong>変数名（名札）を貼る</strong> 　人間が「番地：0x7ffee4…」と覚えるのは無理なので、そこに<code>a</code>という分かりやすい名札を貼る。</p>
+<p>Pythonの場合は、変数分のメモリの場所を自動的に確保・不要となったら開放する。</p>
 </div>
 </div>
-<section id="論理型-bool" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="論理型-bool"><span class="header-section-number">3.4.1</span> 論理型 <code>bool</code></h3>
-<p>論理型<code>bool</code>は、真（True）か偽（False）の二値を表す型である。ただし、Pythonでは、論理値を必要とする状況で空値（None）、空のシーケンス（’’、[]、()）、0などは<code>False</code>とみなされる。<code>False</code>だけが偽ではないので注意しよう。</p>
-</section>
-<section id="整数型-int" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="整数型-int"><span class="header-section-number">3.4.2</span> 整数型 <code>int</code></h3>
-<p>整数を表す型が<code>int</code>である。Pythonでは、整数の大きさに制限はない。整数型リテラルは、10進数はもちろんのこと、2進数や16進数、8進数も利用できる。</p>
-</section>
-<section id="浮動小数点型-float" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="浮動小数点型-float"><span class="header-section-number">3.4.3</span> 浮動小数点型 <code>float</code></h3>
-<p>浮動小数点型リテラルは、整数だけでなく小数や指数を表すことができる。</p>
-<p>指数表現は、<code>e</code>または<code>E</code>の後に指数を指定することで表すことができる。</p>
-<p><span class="math display">\[
-＜仮数部＞e＜符号＞＜指数部＞
-\]</span> の形式で表されるリテラルのこと。</p>
-<p><span class="math display">\[
-＜仮数部＞*10の＜符号＞＜指数部＞
-\]</span></p>
-<p>で本来の小数に変換できる。</p>
-<p>Ex） <span class="math display">\[
-1.23e4  = 1.23 × 10^4 = 12300
-\]</span></p>
-</section>
-<section id="複素数型-complex" class="level3" data-number="3.4.4">
-<h3 data-number="3.4.4" class="anchored" data-anchor-id="複素数型-complex"><span class="header-section-number">3.4.4</span> 複素数型 <code>complex</code></h3>
-<p>複素数を示します。数学的な計算が必要なければ、あまり使うことはない。</p>
-<p><code>j</code>は虚数単位である。</p>
-<div id="85253a7e" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>c1 <span class="op">=</span> <span class="fl">1.0</span> <span class="op">+</span> <span class="ot">2.0j</span> <span class="co">#一般的な複素数</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>c2 <span class="op">=</span> <span class="ot">1.0j</span> <span class="co">#虚数だけの複素数</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c1 <span class="op">+</span> c2)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(1+3j)</code></pre>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-ノート
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>複素数はリテラルとして表すほか、<code>complex()</code>関数を使って生成することもできる。</p>
-<div id="dc0c0d3a" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="bu">complex</span>(<span class="dv">1</span>, <span class="dv">5</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(1+5j)</code></pre>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="文字列型" class="level3" data-number="3.4.5">
-<h3 data-number="3.4.5" class="anchored" data-anchor-id="文字列型"><span class="header-section-number">3.4.5</span> 文字列型</h3>
-<p>文字列リテラルを表すには、シングルクォート<code>'</code>またはダブルクォート<code>"</code>で囲む。なぜ二種類あるかというと、文字列の中にシングルクォートを含めたい場合はダブルクォートで囲み、文字列の中にダブルクォートを含めたい場合はシングルクォートで囲むといった使い分けによって、文字列の中にシングルクォート<code>'</code>またはダブルクォート<code>"</code>を含めることができるからである。</p>
-<div id="95ca70c4" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'You are "GREAT TEACHER ONIZUKA"!!'</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>You are "GREAT TEACHER ONIZUKA"!!</code></pre>
-</div>
-</div>
-<p>ただ、どちらも使う場合は、<strong>エスケープシーケンス記法</strong>を活用する。</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-ノート
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>\'</code>のことをエスケープシーケンスと呼ぶ。<code>'</code>や<code>"</code>をはじめ、改行やタブ文字など特別な意味を持つ（ディスプレイに表示不可）などの文字を表すために利用する。</p>
-<p><code>\</code>のあとに、入れる記号を入れる。たとえば、<code>\b</code>の場合、バックスペースになる。</p>
-<p>特にPythonは、<strong>改行すると文が終了判定となるため、改行を含む文字列を表す場合は、<code>\n</code>を使う。</strong></p>
-</div>
-</div>
-<div id="02bbb180" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'He</span><span class="ch">\'</span><span class="st">s a "GREAT TEACHER ONIZUKA"!!'</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>He's a "GREAT TEACHER ONIZUKA"!!</code></pre>
-</div>
-</div>
-<p>その他、たくさんのリテラル表現があるので、各自で調べてみるとよい。</p>
-</section>
-<section id="リスト" class="level3" data-number="3.4.6">
-<h3 data-number="3.4.6" class="anchored" data-anchor-id="リスト"><span class="header-section-number">3.4.6</span> リスト</h3>
-<p>これまでのものは、いずれも単一の値を持つ型であるが、リストは複数の値を持つことができる型である。</p>
-<p>例えば、鉄道路線を以下のように定義する。</p>
-<div id="f53fea1a" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>line1 <span class="op">=</span> <span class="st">"東海道線"</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>line2 <span class="op">=</span> <span class="st">"山手線"</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>line3 <span class="op">=</span> <span class="st">"中央線"</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>line4 <span class="op">=</span> <span class="st">"京浜東北線"</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>line5 <span class="op">=</span> <span class="st">"総武線"</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>しかし、見た目はまとまっているように見えても、実際には、変数がバラバラに定義されているだけであるため、路線の数を数えたり、路線名を列挙したりすることはできない。そこで、リストを使うと、複数の値をまとめて管理することができる。</p>
-<p>リストは仕切りのある箱のようなもので、複数の値をまとめて管理することができる。仕切りの中にある値は、<strong>要素</strong>と呼ばれる。リストの要素は、整数や文字列などの単一の値だけでなく、リストや辞書などの複数の値を持つ型も含めることができる。</p>
-<p>リストは以下のように作る。</p>
-<section id="次元リスト" class="level4" data-number="3.4.6.1">
-<h4 data-number="3.4.6.1" class="anchored" data-anchor-id="次元リスト"><span class="header-section-number">3.4.6.1</span> １次元リスト</h4>
-<div id="367af839" class="cell" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="st">'東海道線'</span>, <span class="st">'山手線'</span>, <span class="st">'中央線'</span>, <span class="st">'京浜東北線'</span>, <span class="st">'総武線'</span>]</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>リストは、カンマ区切りの値をブラケット（<code>[...]</code>）でくくった形式で表現する。空のリストは<code>[]</code>で表すリストの中身は、<code>変数名[インデックス番号]</code>でアクセスすることができる。インデックス番号は、0から始まることに注意。</p>
-<div id="04f0cb22" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="dv">2</span>])</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>中央線</code></pre>
-</div>
-</div>
-</section>
-<section id="次元リスト-1" class="level4" data-number="3.4.6.2">
-<h4 data-number="3.4.6.2" class="anchored" data-anchor-id="次元リスト-1"><span class="header-section-number">3.4.6.2</span> ２次元リスト</h4>
-<p>入れ子のリストを作ることもできる。</p>
-<div id="27abbd7c" class="cell" data-execution_count="14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>data_b <span class="op">=</span> [</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  [<span class="st">'1-1'</span>, <span class="st">'1-2'</span>, <span class="st">'1-3'</span>],</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  [<span class="st">'2-1'</span>, <span class="st">'2-2'</span>, <span class="st">'2-3'</span>],</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  [<span class="st">'3-1'</span>, <span class="st">'3-2'</span>, <span class="st">'3-3'</span>],</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data_b[<span class="dv">1</span>][<span class="dv">2</span>])</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>2-3</code></pre>
-</div>
-</div>
-</section>
-<section id="次元リスト-2" class="level4" data-number="3.4.6.3">
-<h4 data-number="3.4.6.3" class="anchored" data-anchor-id="次元リスト-2"><span class="header-section-number">3.4.6.3</span> ３次元リスト</h4>
-<p>二次元リストが何個もある場合は３次元リストとなる</p>
-<div id="5778c5af" class="cell" data-execution_count="15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>data_c <span class="op">=</span> [</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  [</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'1-1-1'</span>, <span class="st">'1-1-2'</span>, <span class="st">'1-1-3'</span>],</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'1-2-1'</span>, <span class="st">'1-2-2'</span>, <span class="st">'1-2-3'</span>],</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'1-3-1'</span>, <span class="st">'1-3-2'</span>, <span class="st">'1-3-3'</span>],</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  ],</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  [</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'2-1-1'</span>, <span class="st">'2-1-2'</span>, <span class="st">'2-1-3'</span>],</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'2-2-1'</span>, <span class="st">'2-2-2'</span>, <span class="st">'2-2-3'</span>],</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'2-3-1'</span>, <span class="st">'2-3-2'</span>, <span class="st">'2-3-3'</span>],</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  ],</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  [</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'3-1-1'</span>, <span class="st">'3-1-2'</span>, <span class="st">'3-1-3'</span>],</span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'3-2-1'</span>, <span class="st">'3-2-2'</span>, <span class="st">'3-2-3'</span>],</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'3-3-1'</span>, <span class="st">'3-3-2'</span>, <span class="st">'3-3-3'</span>],</span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>  ],</span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data_c[<span class="dv">1</span>][<span class="dv">2</span>][<span class="dv">0</span>])</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>2-3-1</code></pre>
-</div>
-</div>
-</section>
-</section>
-</section>
-<section id="入出力" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="入出力"><span class="header-section-number">3.5</span> 入出力</h2>
-<p><code>print()</code>関数を使うことで、コンソールに出力することができる。<code>print()</code>関数は、引数に指定した値を文字列に変換して出力する。</p>
-<section id="出力" class="level3" data-number="3.5.1">
-<h3 data-number="3.5.1" class="anchored" data-anchor-id="出力"><span class="header-section-number">3.5.1</span> 出力</h3>
-<div id="8664408e" class="cell" data-execution_count="16">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Hello World</code></pre>
-</div>
-</div>
-</section>
-<section id="f文字列" class="level3" data-number="3.5.2">
-<h3 data-number="3.5.2" class="anchored" data-anchor-id="f文字列"><span class="header-section-number">3.5.2</span> f文字列</h3>
-<div id="30b1b79d" class="cell" data-execution_count="17">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">"Taro"</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">は</span><span class="sc">{</span>age<span class="sc">}</span><span class="ss">歳です"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Taroは20歳です</code></pre>
-</div>
-</div>
+<p>基本文法は、次ページでやることとする。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-James2021" class="csl-entry" role="listitem">
+R.Payne, James, 竹内薫, と 柳田拓人. 2021年. <em><span>13歳からのPython入門</span> : 新時代のヒーロー養成塾</em>. Digital Forest. 東京化学同人.
+</div>
+</div>
 </section>
 </section>
 
@@ -1082,13 +865,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./1py.html" class="pagination-link" aria-label="第１講ー１　Pythonの仕組み メモリの取り方">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">第１講ー１　Pythonの仕組み メモリの取り方</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Python勉強会 資料置き場">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Python勉強会 資料置き場</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./2py.html" class="pagination-link" aria-label="第２講-1　演算子">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">第２講-1　演算子</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./1pyb.html" class="pagination-link" aria-label="基本文法">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">基本文法</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

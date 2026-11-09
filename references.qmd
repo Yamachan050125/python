@@ -6,4 +6,11 @@ format:
     toc: true
     number-sections: false
 lang: ja
+bibliography: references/python.bib
 ---
+
+
+
+
+
+

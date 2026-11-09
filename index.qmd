@@ -1,6 +1,6 @@
 ---
 title: "Python勉強会 資料置き場"
-author: yama
+author: やまちゃん
 format: 
   html: 
     toc: true
