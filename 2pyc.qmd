@@ -1,0 +1,196 @@
+---
+title: "制御構文３ 繰り返し処理の制御"
+subtitle: "Python勉強会"
+author: とりけらとっぷす
+format: 
+  html: 
+    toc: true
+    number-sections: true
+lang: ja
+bibliography: references/python.bib
+---
+
+ループは、ある特定条件で終了させることも可能である。制御の仕方を解説する。
+
+## ループを中断する
+
+`break`命令を利用することで、`for`/`while`本来の終了条件に関わらず、繰り返し処理を強制的に中断[@yamada2020]できる。
+
+![@kanda](https://kanda-it-school-kensyu.com/wp-content/uploads/0d40a5e4a645fc6b96e767d64ac0878e-125.jpg)
+
+基本構文は以下のようになる。
+
+```{python}
+#| eval: false
+while 条件式:
+    if 条件式:
+        break
+    繰り返し処理
+```
+
+もしくは、
+
+```{python}
+#| eval: false
+for 変数名 in イテラルオブジェクト:
+    if 条件式:
+        break
+    繰り返し処理
+```
+
+で処理をする。
+
+例えば、1～100の値を加算し、合計値が1000を超えたときにループ終了する例です。
+
+```{python}
+sum = 0
+
+for i in range(1, 101):
+    sum += 1
+    if sum > 1000:
+        break
+
+print("合計が1000を超えるのは、1～", i, "を加算した時です。")
+```
+
+無条件にbreakするような文は基本的に書かないので、`if`のような条件分岐を合わせて使うことが多い。
+
+## 現在の周回をスキップする
+
+現在の周回だけをスキップし、繰り返し処理は継続する（`break`はループを完全に抜け出す処理）時は、`continue`命令を使用する。すなわち、後の処理をスキップして元のループ文の先頭に戻り、処理を続行する。
+
+![@kanda より](https://kanda-it-school-kensyu.com/wp-content/uploads/0d40a5e4a645fc6b96e767d64ac0878e-133.jpg)
+
+基本構文は、以下のようになる。
+```{python}
+#| eval: false
+for 変数名 in イテラブルオブジェクト :
+    if 条件式 :
+        continue
+    繰り返し処理
+```
+
+もしくは
+
+```{python}
+#|eval: false
+while 条件式１:
+    if 条件式２:
+        continue
+```
+
+![@kanda より](https://kanda-it-school-kensyu.com/wp-content/uploads/0d40a5e4a645fc6b96e767d64ac0878e-137.jpg)
+
+
+例えば、1～100の間で偶数地のみ加算し、その合計値を求めたいとき
+
+```{python}
+sum = 0
+
+for i in range(1, 101):
+    if i % 2 !=0:
+        continue
+    sum += 1
+
+print("合計値は", sum, "です。")
+```
+
+このとき、変数`i`が２で割り切れない時、`continue`命令が発動し、ループのはじめに戻るという仕組みになっている。
+
+## ループでの終了処理
+
+`while`や`for`文でも、`else`が使用できる。
+この時の`else`節は、**breakせずにループを終了した際に実行する処理**
+を示す。
+
+```{python}
+station = ["東京", "品川", "新横浜", "名古屋", "京都", "新大阪"]
+
+for name in station:
+    # 要素が×のときに終了
+    if name == "×":
+        break
+    print(name)
+else:
+    print("東海道新幹線のぞみ停車駅")
+```
+
+では、`×`を真ん中に入れてみよう
+
+```{python}
+station = ["東京", "品川", "新横浜", "×", "名古屋", "京都", "新大阪"]
+
+for name in station:
+    # 要素が×のときに終了
+    if name == "×":
+        break
+    print(name)
+else:
+    print("東海道新幹線のぞみ停車駅")
+```
+
+このように、**×で処理が終了した結果、`else`節が実行されない**。これが、breakを使用したときのelseの使い方である。
+
+
+## 入れ子ループを中断・停止する
+
+ネストされた状態のループ内で、`break`や`continue`をすると、内側のループのみを脱出します。すなわち、break一つにつき、１ループ脱することが出来るということである。
+
+
+例として[@yamada2020]の例を引用する。
+
+九九表をつくる。ただし、各段50を超えたら表示しないものとする。
+
+```{python}
+for i in range(1, 10):
+    for j in range(1, 10):
+        result = i * j
+        if result > 50: #resultが50超えたらbreak
+            break       #breakで一つのループを脱出
+        print(result, end=" ")
+    print()
+```
+
+
+では、積が50を一度でも超えたら、表の出力自体停止するものとする。
+
+```{python}
+for i in range(1, 10):
+    for j in range(1, 10):
+        result = i * j
+        if result > 50: #resultが50超えたらbreak
+            break       #breakで一つのループを脱出
+        print(result, end=" ")
+#内側のループを正常終了したら次の周回へ
+    else:
+        print()
+        continue #内側をbreak
+    break #外側もbreak
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,31 +5,133 @@ author: とりけらとっぷす
 format: 
   html: 
     toc: true
-    number-sections: false
+    number-sections: true
 lang: ja
 bibliography: references/python.bib
 ---
 
 ## 繰り返し処理とは
 
+繰り返し処理は、同じ処理を何度も繰り返すことである。pythonでは、'for'文と'while'文が用意されている。
+
+## `while`文
+
+`while`文は、条件式がTrueである間だけ、繰り返し処理を行う。
+
+![@kanda より](https://kanda-it-school-kensyu.com/wp-content/uploads/0d40a5e4a645fc6b96e767d64ac0878e-115.jpg)
+
+書き方は以下のようになる。
+
+```{python}
+#| eval: false
+
+while 条件式:
+  繰り返す処理
+```
+
+`while`文は、条件が成立している間、ブロック文内の処理を繰り返す。
+
+例えば、
+
+```{python}
+# while文を制御するための変数iを定義
+num = 0
+
+while num <= 4 :               #numが4以上になるまで
+    print('羊が', num , '匹')   #「羊がnum匹」と出す 
+    num += 1                   #numに1足してwhile文へ戻る
+```
+
+変数`num`の値は5で条件は満たされないため、6回目で`while`文を抜ける。
+
+![@kanda より](https://kanda-it-school-kensyu.com/wp-content/uploads/0d40a5e4a645fc6b96e767d64ac0878e-122.jpg)
+
+## `for`文
+
+`for`文は、主に**ループ回数が決まっている場合に使用**する繰り返し処理文である。リストや辞書などのイテラブルオブジェクト（要素を一つずつ取り出し返すのに対応しているオブジェクト）から、要素を順番に取り出して処理ができる。
+
+基本構文はこうなる。
+
+```{python}
+#| eval: false
+
+for 変数名 in イテラブルオブジェクト :
+  繰り返し処理１
+  繰り返し処理２
+  繰り返し処理３...
+```
+
+例えば、
+
+```{python}
+destination = ["東京", "新大阪", "博多", "広島", "名古屋"]
+
+for train in destination:
+  print("まもなく" + train + "行きがまいります。")
+```
+
+名古屋まで繰り返し、名古屋以降はもう要素がないので終了する。
+
+### `range`関数で決められた回数だけ処理を実施する
+
+`range`関数は、$m$～$n$ の整数リストを生成する。（始まりを省略すれば、0スタートになる。）
+
+これをリストの代わりに用いることで、要素を順番に取り出す`for`で処理できる。
+
+```{python}
+for num in range(1, 6):
+  print(num, '番目') #つまり6回処理する。
+```
+@yamada2020 より
+
+::: {.callout-note}
+# `range`関数の利用法
+
+もし、0～10までの数を生成したい場合は、
+
+```{python}
+#| eval: false
+range(10)　#この場合、10回処理する
+
+```
+
+また、`range`関数に第３引数を指定することで、1飛ばしの`range`を生成できる。
+
+```{python}
+#|eval: false
+range(0, 10, 2)
+
+```
+
+:::
+
+### リスト内包表記
+
+既存のリストから新たなリストを生成する際に簡単に処理できる。内包表記は、リストの内容を順に取り出しながら、左にある式を計算し、その計算を新たなリストに追加していく。
+
+表記は以下のように書く。
+
+```{python}
+#| eval: false
+[式 for 仮変数 in リスト]
+```
 
 
+例えば、
 
+```{python}
+data = [15, 47, 7, 59, 98]
+data2 = [i * 2 for i in data] #内包表記　i*2したものをdata2に定義
+print(data2)
+```
 
+`if`文と組み合わせて応用することで、特定の値だけ取得もできる。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+```{python}
+data = [15, 47, 7, 59, 98]
+data2 = [i * 2 for i in data if i < 50] #内包表記　50以下のi*2したものをdata2に定義
+print(data2)
+```
 
 
 

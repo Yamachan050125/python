@@ -5,7 +5,7 @@ author: とりけらとっぷす
 format: 
   html: 
     toc: true
-    number-sections: false
+    number-sections: true
 lang: ja
 bibliography: references/python.bib
 ---
