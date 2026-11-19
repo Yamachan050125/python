@@ -8,7 +8,7 @@
 
 <meta name="author" content="とりけらとっぷす">
 
-<title>6&nbsp; 制御構文２ 繰り返し処理</title>
+<title>6&nbsp; 繰り返し処理</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -172,7 +172,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2pya.html">第２回 条件分岐 関数</a></li><li class="breadcrumb-item"><a href="./2pyb.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">制御構文２ 繰り返し処理</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2pya.html">第２回 条件分岐 関数</a></li><li class="breadcrumb-item"><a href="./2pyb.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">繰り返し処理</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -239,19 +239,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2pya.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">制御構文１ 条件分岐</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">条件分岐</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2pyb.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">制御構文２ 繰り返し処理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">繰り返し処理</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2pyc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">制御構文３ 繰り返し処理の制御</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">繰り返し処理の制御</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2pyd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">例外処理</span></span></a>
   </div>
 </li>
       </ul>
@@ -259,7 +265,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span></a>
   </div>
 </li>
     </ul>
@@ -285,9 +291,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2pya.html">第２回 条件分岐 関数</a></li><li class="breadcrumb-item"><a href="./2pyb.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">制御構文２ 繰り返し処理</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2pya.html">第２回 条件分岐 関数</a></li><li class="breadcrumb-item"><a href="./2pyb.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">繰り返し処理</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">制御構文２ 繰り返し処理</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">繰り返し処理</span></h1>
 <p class="subtitle lead">Python勉強会</p>
 </div>
 
@@ -325,13 +331,13 @@ window.Quarto = {
 </figure>
 </div>
 <p>書き方は以下のようになる。</p>
-<div id="22814828" class="cell" data-execution_count="1">
+<div id="207ece6f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> 条件式:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  繰り返す処理</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>while</code>文は、条件が成立している間、ブロック文内の処理を繰り返す。</p>
 <p>例えば、</p>
-<div id="bd5a46db" class="cell" data-execution_count="2">
+<div id="442964bd" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># while文を制御するための変数iを定義</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -358,14 +364,14 @@ window.Quarto = {
 <h2 data-number="6.3" class="anchored" data-anchor-id="for文"><span class="header-section-number">6.3</span> <code>for</code>文</h2>
 <p><code>for</code>文は、主に<strong>ループ回数が決まっている場合に使用</strong>する繰り返し処理文である。リストや辞書などのイテラブルオブジェクト（要素を一つずつ取り出し返すのに対応しているオブジェクト）から、要素を順番に取り出して処理ができる。</p>
 <p>基本構文はこうなる。</p>
-<div id="846e0659" class="cell" data-execution_count="3">
+<div id="b3ab8c45" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> 変数名 <span class="kw">in</span> イテラブルオブジェクト :</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  繰り返し処理１</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  繰り返し処理２</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  繰り返し処理３...</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>例えば、</p>
-<div id="6cd7e43c" class="cell" data-execution_count="4">
+<div id="0abad67c" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>destination <span class="op">=</span> [<span class="st">"東京"</span>, <span class="st">"新大阪"</span>, <span class="st">"博多"</span>, <span class="st">"広島"</span>, <span class="st">"名古屋"</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> train <span class="kw">in</span> destination:</span>
@@ -383,7 +389,7 @@ window.Quarto = {
 <h3 data-number="6.3.1" class="anchored" data-anchor-id="range関数で決められた回数だけ処理を実施する"><span class="header-section-number">6.3.1</span> <code>range</code>関数で決められた回数だけ処理を実施する</h3>
 <p><code>range</code>関数は、<span class="math inline">\(m\)</span>～<span class="math inline">\(n\)</span> の整数リストを生成する。（始まりを省略すれば、0スタートになる。）</p>
 <p>これをリストの代わりに用いることで、要素を順番に取り出す<code>for</code>で処理できる。</p>
-<div id="33c2d26b" class="cell" data-execution_count="5">
+<div id="aea153a4" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> num <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(num, <span class="st">'番目'</span>) <span class="co">#つまり6回処理する。</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -406,11 +412,11 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>もし、0～10までの数を生成したい場合は、</p>
-<div id="060163e6" class="cell" data-execution_count="6">
+<div id="42298307" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">range</span>(<span class="dv">10</span>)　<span class="co">#この場合、10回処理する</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>また、<code>range</code>関数に第３引数を指定することで、1飛ばしの<code>range</code>を生成できる。</p>
-<div id="1b013d39" class="cell" data-execution_count="7">
+<div id="bfdcf4fc" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
@@ -420,11 +426,11 @@ window.Quarto = {
 <h3 data-number="6.3.2" class="anchored" data-anchor-id="リスト内包表記"><span class="header-section-number">6.3.2</span> リスト内包表記</h3>
 <p>既存のリストから新たなリストを生成する際に簡単に処理できる。内包表記は、リストの内容を順に取り出しながら、左にある式を計算し、その計算を新たなリストに追加していく。</p>
 <p>表記は以下のように書く。</p>
-<div id="98afd626" class="cell" data-execution_count="8">
+<div id="5ab297b2" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>[式 <span class="cf">for</span> 仮変数 <span class="kw">in</span> リスト]</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>例えば、</p>
-<div id="70c744dd" class="cell" data-execution_count="9">
+<div id="0c299c6b" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">15</span>, <span class="dv">47</span>, <span class="dv">7</span>, <span class="dv">59</span>, <span class="dv">98</span>]</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> [i <span class="op">*</span> <span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> data] <span class="co">#内包表記　i*2したものをdata2に定義</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data2)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
@@ -433,7 +439,7 @@ window.Quarto = {
 </div>
 </div>
 <p><code>if</code>文と組み合わせて応用することで、特定の値だけ取得もできる。</p>
-<div id="36c77368" class="cell" data-execution_count="10">
+<div id="68b54cf0" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">15</span>, <span class="dv">47</span>, <span class="dv">7</span>, <span class="dv">59</span>, <span class="dv">98</span>]</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> [i <span class="op">*</span> <span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> data <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">50</span>] <span class="co">#内包表記　50以下のi*2したものをdata2に定義</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data2)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
@@ -857,13 +863,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./2pya.html" class="pagination-link" aria-label="制御構文１ 条件分岐">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">制御構文１ 条件分岐</span></span>
+      <a href="./2pya.html" class="pagination-link" aria-label="条件分岐">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">条件分岐</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./2pyc.html" class="pagination-link" aria-label="制御構文３ 繰り返し処理の制御">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">制御構文３ 繰り返し処理の制御</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./2pyc.html" class="pagination-link" aria-label="繰り返し処理の制御">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">繰り返し処理の制御</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

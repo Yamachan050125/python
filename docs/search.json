@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Python勉強会 資料置き場",
     "section": "",
-    "text": "第１回 Pythonとは 基本文法（変数・定数・データ型）・演算子\nこのサイトは、Python勉強会の資料置き場です。\n第１講ー１　Pythonの仕組み メモリの取り方\n第１講ー２　基本文法（変数・定数・データ型）\n第１講ー３　演算子",
+    "text": "Pythonとは 基本文法（変数・定数・データ型）・演算子\nこのサイトは、Python勉強会の資料置き場です。\n第１講ー１　Pythonの仕組み メモリの取り方\n第１講ー２　基本文法（変数・定数・データ型）\n第１講ー３　演算子",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python勉強会 資料置き場</span>"
     ]
@@ -285,12 +285,12 @@
   {
     "objectID": "2pya.html",
     "href": "2pya.html",
-    "title": "5  制御構文１ 条件分岐",
+    "title": "5  条件分岐",
     "section": "",
     "text": "5.0.1 疑似コードでイメージをつかもう\n条件文とは、条件が満たされているかによって、コードの一部が実行されるかを決定するコードのこと(R.Payne ほか 2021年)である。\nこの文を作るには、極めて論理的なコードを構築する必要がある。これこそが、小学校でプログラミング教育でも重視されている「論理的思考力」の育成に繋がる。\nまずは、R.Payne ほか (2021年) の例を引用し、条件文をコードを使わずに説明する。\nあなたは今ランチを食べようとしている。筋肉を鍛えるためのランチにしたい。ランチボックスの中身は以下の通り。\nパンは使用するとしても、どれをつけるかは判断が必要になる。これが条件文である。\nもし, サンドイッチを作るならば：\n    パンを取得\n次に, ピーナッツバターの種類を選択.\nもし, ピーナッツバターのタイプ = \"なめらか\" ならば：\n    \"気持ち悪い. 気持ち悪いからやめろよ\"と表示.\n違うならば：\n    \"ザクザクは正しい選択だよ！　ウマい！\"と表示.\n次に, ジャムの種類を選択.\nもし, ジャムの種類 = \"グレープ\" ならば：\n    \"選ぶのが苦手なのかい？\"と表示.\n違うならば,  もし, ジャムの種類 = \"ストロベリー\" ならば：\n    \"ピーナッツバターを台無しにしたいなら, どうぞ\"と表示.\n違うならば, もし, ジャムの種類 = \"アップル\" ならば：\n    \"アップルジャムで決まりだね！　一番おいしいよ！　君は賢いね！\"と表示.\n次に, パンにピーナッツバターとジャムを塗り, はさんで, 耳をとって, 食べる.\nとなるわけである。これをコードでやるだけ。まずは、「もし」を使った条件文ifの書き方を学ぶ。",
     "crumbs": [
       "第２回 条件分岐 関数",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>制御構文１ 条件分岐</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>条件分岐</span>"
     ]
   },
   {
@@ -318,23 +318,23 @@
   {
     "objectID": "2pya.html#条件分岐",
     "href": "2pya.html#条件分岐",
-    "title": "5  制御構文１ 条件分岐",
+    "title": "5  条件分岐",
     "section": "5.1 条件分岐",
     "text": "5.1 条件分岐\nifは、与えられた条件がTRUEかFALSEかによって実行すべき処理を決める命令(山田 2020年)である。日本語に直すと、「もしも～だったら…、違うならば…」である。\n\n5.1.1 単純分岐\nまずは、「違うならば…」が１つしかないものから始めよう。構文は以下の通り。\n\nif 条件式:\n    条件式がTrueのときに実行する処理\nelse:\n    条件式がFalseのときに実行する処理\n\nでは、変数iが、3であるか否かを判定するコードを書いてみよう。\n\n#もしiが3のとき\ni = 3 #i=3と定義する\n\nif i == 3:                      #もしiが3であるならば\n    print(\"iは3じゃボケ！！！\")  #「iは3じゃボケ！！！」と表示する\nelse:                           #もしiが3でないならば\n    print(\"iは3じゃねーよ\")      #「iは3じゃねーよ」を表示する\n\niは3じゃボケ！！！\n\n\n\n#もしiが3でないとき\ni = 5 #i=5と定義する\n\nif i == 3:                      #もしiが3であるならば\n    print(\"iは3じゃボケ！！！\")  #「iは3じゃボケ！！！」と表示する\nelse:                           #もしiが3でないならば\n    print(\"iは3じゃねーよ\")      #「iは3じゃねーよ」を表示する\n\niは3じゃねーよ\n\n\n\n\n\n\n\n\nノート\n\n\n\nちなみに、if文のように、配下に複数の文を持ち、それらの文を実行するかどうかを決めるための文(山田 2020年)のことを複合文と呼ぶ。複合文は、一つ以上の節から構成され、節内には、ヘッダーとスイート（ブロック）がある。\n\n\n\n節とヘッダーとスイート 【図解】Pythonのsuite(スイート), Clause(節),Expression(式),_stmt(文)とは何か？違いや意味、種類を解説 (2023年) より\n\n\n\n\n\n\n\n\n\n\n警告\n\n\n\n以下の文法に注意せよ。\n\n一つの複合文でヘッダーのインデント（字下げ位置）はそろっていること\nヘッダーを識別するキーワード（if, elseなど）で始まり、コロン:で終わること\n\nブロックを示すインデントは半角空白4つを使おう。Tabキーはでも可能であるが、エディタによって表示が違うので、Tabキーは原則使用しないこと。\n\nif i == 10\n----print(\"iは10である\") #-は半角空白に置き換える\n\n\n\nなお、elseを省略した場合、if文で書いた条件時だけ、ブロックの内容が実行される。\n\ni = 3\nif i == 3:\n    print(\"3だぜ( ｰ`дｰ´)ｷﾘｯ\")\n#elseを省略する。\n#つまり「3か。3以外か。」-GAKUT\n\n3だぜ( ｰ`дｰ´)ｷﾘｯ\n\n\n\n\n5.1.2 多岐分岐\n多岐分岐は、「も～なら」が何個もある場合の文を作ることができる。その際は、elifを用いる。\n構文は以下の通り\n\nif 条件式１:\n    条件式１がTrueの時に実行する処理\nelif 条件式２:\n    条件式２がTrueの時に実行する処理\n...\nelse:\n    上記条件にすべて当てはまらない場合の処理\n\nelifは、条件の数だけ増やせる。すなわち、ifは１つ且つ一番最初のみ使用。増やしたいときは、elifを使用する。\n変数iが、3以上であるか、4以上であるか否かを判定するコードを書いてみよう。\n\ni = 5\n\nif i &gt; 3:\n    print(\"iは3より大きいよ\")\nelif i &gt; 4:\n    print(\"iは2より大きいよ\")\nelse:\n    print(\"変数は1以下だよ\") \n\niは3より大きいよ\n\n\n\n\n\n\n\n\n重要\n\n\n\nここで大事なのは、if文は、複数の条件に合致しても、実行されるブロックは最初に合致した１つ目のブロックのみであることに注意しなければならないことである。そのため、上記例では、\n\nelif i &gt; 4:\n    print(\"iは2より大きいよ\")\n\nが、条件に当てはまるのに実行されなかった。\n\n\n\n神田ITスクール (2010年) より\n\n\n\n\n\n\n5.1.3 入れ子のif文\nif文は、互いに入れ子（ネスト）構造にできる。\n\n\n\n神田ITスクール (2010年) より\n\n\n\ni = 3\nj = 0\n\nif i == 3:                                  #外側のif命令start\n    if j == 3:                              #内側のif命令start\n        print(\"変数iもjも3である\")\n    else:\n        print(\"変数iは3ですが、jは3ではない\") #内側のif命令finish\nelse:                                       #外側のif命令finish\n    print(\"変数iは3ではない\")\n\n変数iは3ですが、jは3ではない\n\n\nこのとき、当然だが同じ階層のヘッダー／ブロックはインデントを揃えることが重要である。\n\n\n5.1.4 論理積and\n論理演算子and（演算子の左辺と右辺の値がともに「true」の場合だけ、全体がtrue）も使用可能\n\nif 条件式１ and 条件式２:\n    処理\n\nこの場合、もし条件式１が合っている、かつ、条件式２が合っていたら処理を行うとなる。\n\n\n5.1.5 論理和or\n論理演算子or（演算子の左辺または右辺の値が少なくとも1つがtrueの場合に、全体がtrue）も使用可能\n\nif 条件式１ or 条件式２:\n    処理\n\nこの場合、もし条件式１または条件式２のどちらかが合っていたら処理を行うとなる。\n\n\n5.1.6 論理否定 not\n否定文にしたいときは、notを使用する。\n\nif not 条件式:\n    処理\n\n\n\n\n\n\n\n重要\n\n\n\nただし、条件式からは、なるべく否定表現を使用しないことが重要である。\nというのは、論理演算子は、時として思わぬバグの温床となる。特に、否定＋論理演算子は、一般的に混乱の元であり、なるべく肯定表現へ置き換えるが、このとき使用するのが、ド・モルガンの法則である。\n$$ = \n = $$\nコードで書くなら\n\nnot A and not B = not(A or B)\n\nnot A or not B = not(A and B)\n\nである。\n例えば、\n\n#AもBもTrueでない\nif not A and not B:\n    ~\n\n#以下のように書き換えられる\nif not (A or B):\n    ~\n\n\n\n\n\n\n\nR.Payne, James, 竹内薫, と 柳田拓人. 2021年. 13歳からのPython入門 : 新時代のヒーロー養成塾. Digital Forest. 東京化学同人.\n\n\n【図解】Pythonのsuite(スイート), Clause(節),Expression(式),_stmt(文)とは何か？違いや意味、種類を解説. 2023年.\n\n\n山田祥寛. 2020年. 独習Python = Teach Yourself Python. 翔泳社.\n\n\n神田ITスクール. 2010年. Python入門テキスト 第8章 条件処理.",
     "crumbs": [
       "第２回 条件分岐 関数",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>制御構文１ 条件分岐</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>条件分岐</span>"
     ]
   },
   {
     "objectID": "2pyb.html",
     "href": "2pyb.html",
-    "title": "6  制御構文２ 繰り返し処理",
+    "title": "6  繰り返し処理",
     "section": "",
     "text": "6.1 繰り返し処理とは\n繰り返し処理は、同じ処理を何度も繰り返すことである。pythonでは、’for’文と’while’文が用意されている。",
     "crumbs": [
       "第２回 条件分岐 関数",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>制御構文２ 繰り返し処理</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>繰り返し処理</span>"
     ]
   },
   {
@@ -350,78 +350,131 @@
   {
     "objectID": "2pyb.html#while文",
     "href": "2pyb.html#while文",
-    "title": "6  制御構文２ 繰り返し処理",
+    "title": "6  繰り返し処理",
     "section": "6.2 while文",
     "text": "6.2 while文\nwhile文は、条件式がTrueである間だけ、繰り返し処理を行う。\n\n\n\n神田ITスクール (2010年) より\n\n\n書き方は以下のようになる。\n\nwhile 条件式:\n  繰り返す処理\n\nwhile文は、条件が成立している間、ブロック文内の処理を繰り返す。\n例えば、\n\n# while文を制御するための変数iを定義\nnum = 0\n\nwhile num &lt;= 4 :               #numが4以上になるまで\n    print('羊が', num , '匹')   #「羊がnum匹」と出す \n    num += 1                   #numに1足してwhile文へ戻る\n\n羊が 0 匹\n羊が 1 匹\n羊が 2 匹\n羊が 3 匹\n羊が 4 匹\n\n\n変数numの値は5で条件は満たされないため、6回目でwhile文を抜ける。\n\n\n\n神田ITスクール (2010年) より",
     "crumbs": [
       "第２回 条件分岐 関数",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>制御構文２ 繰り返し処理</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>繰り返し処理</span>"
     ]
   },
   {
     "objectID": "2pyb.html#for文",
     "href": "2pyb.html#for文",
-    "title": "6  制御構文２ 繰り返し処理",
+    "title": "6  繰り返し処理",
     "section": "6.3 for文",
     "text": "6.3 for文\nfor文は、主にループ回数が決まっている場合に使用する繰り返し処理文である。リストや辞書などのイテラブルオブジェクト（要素を一つずつ取り出し返すのに対応しているオブジェクト）から、要素を順番に取り出して処理ができる。\n基本構文はこうなる。\n\nfor 変数名 in イテラブルオブジェクト :\n  繰り返し処理１\n  繰り返し処理２\n  繰り返し処理３...\n\n例えば、\n\ndestination = [\"東京\", \"新大阪\", \"博多\", \"広島\", \"名古屋\"]\n\nfor train in destination:\n  print(\"まもなく\" + train + \"行きがまいります。\")\n\nまもなく東京行きがまいります。\nまもなく新大阪行きがまいります。\nまもなく博多行きがまいります。\nまもなく広島行きがまいります。\nまもなく名古屋行きがまいります。\n\n\n名古屋まで繰り返し、名古屋以降はもう要素がないので終了する。\n\n6.3.1 range関数で決められた回数だけ処理を実施する\nrange関数は、\\(m\\)～\\(n\\) の整数リストを生成する。（始まりを省略すれば、0スタートになる。）\nこれをリストの代わりに用いることで、要素を順番に取り出すforで処理できる。\n\nfor num in range(1, 6):\n  print(num, '番目') #つまり6回処理する。\n\n1 番目\n2 番目\n3 番目\n4 番目\n5 番目\n\n\n山田 (2020年) より\n\n\n\n\n\n\nノートrange関数の利用法\n\n\n\nもし、0～10までの数を生成したい場合は、\n\nrange(10)　#この場合、10回処理する\n\nまた、range関数に第３引数を指定することで、1飛ばしのrangeを生成できる。\n\nrange(0, 10, 2)\n\n\n\n\n\n6.3.2 リスト内包表記\n既存のリストから新たなリストを生成する際に簡単に処理できる。内包表記は、リストの内容を順に取り出しながら、左にある式を計算し、その計算を新たなリストに追加していく。\n表記は以下のように書く。\n\n[式 for 仮変数 in リスト]\n\n例えば、\n\ndata = [15, 47, 7, 59, 98]\ndata2 = [i * 2 for i in data] #内包表記　i*2したものをdata2に定義\nprint(data2)\n\n[30, 94, 14, 118, 196]\n\n\nif文と組み合わせて応用することで、特定の値だけ取得もできる。\n\ndata = [15, 47, 7, 59, 98]\ndata2 = [i * 2 for i in data if i &lt; 50] #内包表記　50以下のi*2したものをdata2に定義\nprint(data2)\n\n[30, 94, 14]\n\n\n\n\n\n\n山田祥寛. 2020年. 独習Python = Teach Yourself Python. 翔泳社.\n\n\n神田ITスクール. 2010年. Python入門テキスト 第8章 条件処理.",
     "crumbs": [
       "第２回 条件分岐 関数",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>制御構文２ 繰り返し処理</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>繰り返し処理</span>"
     ]
   },
   {
     "objectID": "2pyc.html",
     "href": "2pyc.html",
-    "title": "7  制御構文３ 繰り返し処理の制御",
+    "title": "7  繰り返し処理の制御",
     "section": "",
     "text": "7.1 ループを中断する\nループは、ある特定条件で終了させることも可能である。制御の仕方を解説する。\nbreak命令を利用することで、for/while本来の終了条件に関わらず、繰り返し処理を強制的に中断(山田 2020年)できる。\n基本構文は以下のようになる。\nwhile 条件式:\n    if 条件式:\n        break\n    繰り返し処理\nもしくは、\nfor 変数名 in イテラルオブジェクト:\n    if 条件式:\n        break\n    繰り返し処理\nで処理をする。\n例えば、1～100の値を加算し、合計値が1000を超えたときにループ終了する例です。\nsum = 0\n\nfor i in range(1, 101):\n    sum += 1\n    if sum &gt; 1000:\n        break\n\nprint(\"合計が1000を超えるのは、1～\", i, \"を加算した時です。\")\n\n合計が1000を超えるのは、1～ 100 を加算した時です。\n無条件にbreakするような文は基本的に書かないので、ifのような条件分岐を合わせて使うことが多い。",
     "crumbs": [
       "第２回 条件分岐 関数",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>制御構文３ 繰り返し処理の制御</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>繰り返し処理の制御</span>"
     ]
   },
   {
     "objectID": "2pyc.html#ループを中断する",
     "href": "2pyc.html#ループを中断する",
-    "title": "7  制御構文３ 繰り返し処理の制御",
+    "title": "7  繰り返し処理の制御",
     "section": "",
     "text": "神田ITスクール (2010年)",
     "crumbs": [
       "第２回 条件分岐 関数",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>制御構文３ 繰り返し処理の制御</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>繰り返し処理の制御</span>"
     ]
   },
   {
     "objectID": "2pyc.html#現在の周回をスキップする",
     "href": "2pyc.html#現在の周回をスキップする",
-    "title": "7  制御構文３ 繰り返し処理の制御",
+    "title": "7  繰り返し処理の制御",
     "section": "7.2 現在の周回をスキップする",
     "text": "7.2 現在の周回をスキップする\n現在の周回だけをスキップし、繰り返し処理は継続する（breakはループを完全に抜け出す処理）時は、continue命令を使用する。すなわち、後の処理をスキップして元のループ文の先頭に戻り、処理を続行する。\n\n\n\n神田ITスクール (2010年) より\n\n\n基本構文は、以下のようになる。\n\nfor 変数名 in イテラブルオブジェクト :\n    if 条件式 :\n        continue\n    繰り返し処理\n\nもしくは\n\nwhile 条件式１:\n    if 条件式２:\n        continue\n\n\n\n\n神田ITスクール (2010年) より\n\n\n例えば、1～100の間で偶数地のみ加算し、その合計値を求めたいとき\n\nsum = 0\n\nfor i in range(1, 101):\n    if i % 2 !=0:\n        continue\n    sum += 1\n\nprint(\"合計値は\", sum, \"です。\")\n\n合計値は 50 です。\n\n\nこのとき、変数iが２で割り切れない時、continue命令が発動し、ループのはじめに戻るという仕組みになっている。",
     "crumbs": [
       "第２回 条件分岐 関数",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>制御構文３ 繰り返し処理の制御</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>繰り返し処理の制御</span>"
     ]
   },
   {
     "objectID": "2pyc.html#ループでの終了処理",
     "href": "2pyc.html#ループでの終了処理",
-    "title": "7  制御構文３ 繰り返し処理の制御",
+    "title": "7  繰り返し処理の制御",
     "section": "7.3 ループでの終了処理",
     "text": "7.3 ループでの終了処理\nwhileやfor文でも、elseが使用できる。 この時のelse節は、breakせずにループを終了した際に実行する処理 を示す。\n\nstation = [\"東京\", \"品川\", \"新横浜\", \"名古屋\", \"京都\", \"新大阪\"]\n\nfor name in station:\n    # 要素が×のときに終了\n    if name == \"×\":\n        break\n    print(name)\nelse:\n    print(\"東海道新幹線のぞみ停車駅\")\n\n東京\n品川\n新横浜\n名古屋\n京都\n新大阪\n東海道新幹線のぞみ停車駅\n\n\nでは、×を真ん中に入れてみよう\n\nstation = [\"東京\", \"品川\", \"新横浜\", \"×\", \"名古屋\", \"京都\", \"新大阪\"]\n\nfor name in station:\n    # 要素が×のときに終了\n    if name == \"×\":\n        break\n    print(name)\nelse:\n    print(\"東海道新幹線のぞみ停車駅\")\n\n東京\n品川\n新横浜\n\n\nこのように、×で処理が終了した結果、else節が実行されない。これが、breakを使用したときのelseの使い方である。",
     "crumbs": [
       "第２回 条件分岐 関数",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>制御構文３ 繰り返し処理の制御</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>繰り返し処理の制御</span>"
     ]
   },
   {
     "objectID": "2pyc.html#入れ子ループを中断停止する",
     "href": "2pyc.html#入れ子ループを中断停止する",
-    "title": "7  制御構文３ 繰り返し処理の制御",
+    "title": "7  繰り返し処理の制御",
     "section": "7.4 入れ子ループを中断・停止する",
-    "text": "7.4 入れ子ループを中断・停止する\nネストされた状態のループ内で、breakやcontinueをすると、内側のループのみを脱出します。すなわち、break一つにつき、１ループ脱することが出来るということである。\n例として(山田 2020年)の例を引用する。\n九九表をつくる。ただし、各段50を超えたら表示しないものとする。\n\nfor i in range(1, 10):\n    for j in range(1, 10):\n        result = i * j\n        if result &gt; 50: #resultが50超えたらbreak\n            break       #breakで一つのループを脱出\n        print(result, end=\" \")\n    print()\n\n1 2 3 4 5 6 7 8 9 \n2 4 6 8 10 12 14 16 18 \n3 6 9 12 15 18 21 24 27 \n4 8 12 16 20 24 28 32 36 \n5 10 15 20 25 30 35 40 45 \n6 12 18 24 30 36 42 48 \n7 14 21 28 35 42 49 \n8 16 24 32 40 48 \n9 18 27 36 45 \n\n\nでは、積が50を一度でも超えたら、表の出力自体停止するものとする。\n\nfor i in range(1, 10):\n    for j in range(1, 10):\n        result = i * j\n        if result &gt; 50: #resultが50超えたらbreak\n            break       #breakで一つのループを脱出\n        print(result, end=\" \")\n#内側のループを正常終了したら次の周回へ\n    else:\n        print()\n        continue #内側をbreak\n    break #外側もbreak\n\n1 2 3 4 5 6 7 8 9 \n2 4 6 8 10 12 14 16 18 \n3 6 9 12 15 18 21 24 27 \n4 8 12 16 20 24 28 32 36 \n5 10 15 20 25 30 35 40 45 \n6 12 18 24 30 36 42 48 \n\n\n\n\n\n\n山田祥寛. 2020年. 独習Python = Teach Yourself Python. 翔泳社.\n\n\n神田ITスクール. 2010年. Python入門テキスト 第8章 条件処理.",
+    "text": "7.4 入れ子ループを中断・停止する\nネストされた状態のループ内で、breakやcontinueをすると、内側のループのみを脱出します。すなわち、break一つにつき、１ループ脱することが出来るということである。\n例として(山田 2020年)の例を引用する。\n九九表をつくる。ただし、各段50を超えたら表示しないものとする。\n\nfor i in range(1, 10):\n    for j in range(1, 10):\n        result = i * j\n        if result &gt; 50: #resultが50超えたらbreak\n            break       #breakで一つのループを脱出\n        print(result, end=\" \")\n    print()\n\n1 2 3 4 5 6 7 8 9 \n2 4 6 8 10 12 14 16 18 \n3 6 9 12 15 18 21 24 27 \n4 8 12 16 20 24 28 32 36 \n5 10 15 20 25 30 35 40 45 \n6 12 18 24 30 36 42 48 \n7 14 21 28 35 42 49 \n8 16 24 32 40 48 \n9 18 27 36 45 \n\n\nでは、積が50を一度でも超えたら、表の出力を途中停止するものとする。\n\nfor i in range(1, 10):\n    for j in range(1, 10):\n        result = i * j\n        if result &gt; 50: #resultが50超えたらbreak\n            break       #breakで一つのループを脱出\n        print(result, end=\" \")\n#内側のループを正常終了したら次の周回へ\n    else:\n        print()\n        continue #内側をbreak\n    break #外側もbreak\n\n1 2 3 4 5 6 7 8 9 \n2 4 6 8 10 12 14 16 18 \n3 6 9 12 15 18 21 24 27 \n4 8 12 16 20 24 28 32 36 \n5 10 15 20 25 30 35 40 45 \n6 12 18 24 30 36 42 48 \n\n\n\n\n\n\n山田祥寛. 2020年. 独習Python = Teach Yourself Python. 翔泳社.\n\n\n神田ITスクール. 2010年. Python入門テキスト 第8章 条件処理.",
     "crumbs": [
       "第２回 条件分岐 関数",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>制御構文３ 繰り返し処理の制御</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>繰り返し処理の制御</span>"
+    ]
+  },
+  {
+    "objectID": "2pyd.html",
+    "href": "2pyd.html",
+    "title": "8  例外処理",
+    "section": "",
+    "text": "8.1 エラーの種類\nエラーは事前対応が必要。そのためには、エラーの種類を理解しよう。",
+    "crumbs": [
+      "第２回 条件分岐 関数",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>例外処理</span>"
+    ]
+  },
+  {
+    "objectID": "2pyd.html#エラーの種類",
+    "href": "2pyd.html#エラーの種類",
+    "title": "8  例外処理",
+    "section": "",
+    "text": "8.1.1 構文エラー\n構文エラーは、単純に構文が間違っている場合である。この場合は、コードが実行できない。\n\nif flag:\nprint(\"hallo world\") #インデントが間違っている\n\n\n  Cell In[1], line 2\n    print(\"hallo world\") #インデントが間違っている\n    ^\nIndentationError: expected an indented block after 'if' statement on line 1\n\n\n\n\n\n\n8.1.2 例外\n例えば、ユーザーから受け取った数値を受け取り、その値を二倍したものを返すコードを書く\n\nnum = input(\"数字を入力してください\")\n\nprint(\"２倍すると...\", floot(num) * 2)\n\nこのコード自体に問題はない。input関数は、ユーザーからの入力を受け取る関数で、文字列型として出力される。これをfloot関数で数値型へ変換している。\nしかし、もしinput関数に、数字以外の文字が入力された場合はどうか。floot関数でエラーとなる。\nこのように、コード自体に問題はないが、ユーザーの行動によってエラーとなるような場合は、こちらで防ぐには限界がある。ユーザーの行動の予測し、対応しなければならない。 これを、構文エラーと区別して例外と呼ぶ。",
+    "crumbs": [
+      "第２回 条件分岐 関数",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>例外処理</span>"
+    ]
+  },
+  {
+    "objectID": "2pyd.html#例外処理",
+    "href": "2pyd.html#例外処理",
+    "title": "8  例外処理",
+    "section": "8.2 例外処理",
+    "text": "8.2 例外処理\n例外処理は、上記のこの例外をあらかじめ予測し対応するためにある。これを用いて、ユーザーの逸脱した行動を予測し、その行動が行われたときに、実行を継続または安全に終了させる。\n\n8.2.1 try...except命令\n基本構文は以下のようになる。\n\ntry:\n    ...例外が発生するコード\nexcept 例外の種類 as 例外変数:\n    ...例外発生時の処理...\n\n例えば、上記のコードで書くと…\n\ntry:\n    num = input(\"数字を入力してください\")\n    print(\"２倍すると\", floot(num) * 2)\nexcept ValueError as ex:\n    print(\"エラー発生：\", ex)\n\n正常時（ここでは数値が入力されること）にexcept節は実行されない。\n\n\n\n\n\n\nノートexcept節の記法\n\n\n\n（１）例外変数を参照しない場合\nその際は、asを省略する。\n\nexcept ValueError:\n    print(\"エラーが発生しました\")\n\n（２）複数の例外種類をまとめて補足したい場合\n例えば、ValueErrorとTypeErrorに対して、同じ処理を実装したい場合\n\nexcept (ValueError, TypeError) as ex\n\n（３）すべての例外を補足する\n例外名そのものを省略することも可能。ただし、この場合エラー特定ができないので、なるべく使用しないことを推奨する。\n\nexcept:\n    print(\"エラーが発生しました\")\n\n\n\n\n\n8.2.2 例外発生時の対応 else / finally\ntry...except命令において、例外処理をした後（もしくはしなかった場合）、別で処理をする機能を実装する。\n基本構文は以下のようになる。\n\ntry:\n    例外が発生するコード\nexcept 例外の種類 as 例外変数:\n    例外発生時の対応\nelse:\n    例外が発生しなかったときの処理\nfinally:\n    例外の有無にかかわらず実行する処理",
+    "crumbs": [
+      "第２回 条件分岐 関数",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>例外処理</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#条件分岐繰り返し処理",
+    "href": "index.html#条件分岐繰り返し処理",
+    "title": "Python勉強会 資料置き場",
+    "section": "条件分岐・繰り返し処理",
+    "text": "条件分岐・繰り返し処理\n第２講ー１　条件分岐\n第２講ー２　繰り返し処理\n第２講ー３　繰り返し処理の制御\n第２講ー４　例外処理",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python勉強会 資料置き場</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#関数",
+    "href": "index.html#関数",
+    "title": "Python勉強会 資料置き場",
+    "section": "関数",
+    "text": "関数",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python勉強会 資料置き場</span>"
     ]
   }
 ]

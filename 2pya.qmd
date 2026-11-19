@@ -1,5 +1,5 @@
 ---
-title: "制御構文１ 条件分岐"
+title: "条件分岐"
 subtitle: "Python勉強会"
 author: とりけらとっぷす
 format: 

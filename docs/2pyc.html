@@ -8,7 +8,7 @@
 
 <meta name="author" content="とりけらとっぷす">
 
-<title>7&nbsp; 制御構文３ 繰り返し処理の制御</title>
+<title>7&nbsp; 繰り返し処理の制御</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -91,7 +91,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./2pyd.html" rel="next">
 <link href="./2pyb.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -143,7 +143,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2pya.html">第２回 条件分岐 関数</a></li><li class="breadcrumb-item"><a href="./2pyc.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">制御構文３ 繰り返し処理の制御</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2pya.html">第２回 条件分岐 関数</a></li><li class="breadcrumb-item"><a href="./2pyc.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">繰り返し処理の制御</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -210,19 +210,25 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2pya.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">制御構文１ 条件分岐</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">条件分岐</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2pyb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">制御構文２ 繰り返し処理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">繰り返し処理</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2pyc.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">制御構文３ 繰り返し処理の制御</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">繰り返し処理の制御</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2pyd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">例外処理</span></span></a>
   </div>
 </li>
       </ul>
@@ -230,7 +236,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span></a>
   </div>
 </li>
     </ul>
@@ -253,9 +259,9 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2pya.html">第２回 条件分岐 関数</a></li><li class="breadcrumb-item"><a href="./2pyc.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">制御構文３ 繰り返し処理の制御</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2pya.html">第２回 条件分岐 関数</a></li><li class="breadcrumb-item"><a href="./2pyc.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">繰り返し処理の制御</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">制御構文３ 繰り返し処理の制御</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">繰り返し処理の制御</span></h1>
 <p class="subtitle lead">Python勉強会</p>
 </div>
 
@@ -290,14 +296,14 @@ div.csl-indent {
 </figure>
 </div>
 <p>基本構文は以下のようになる。</p>
-<div id="621c7b6d" class="cell" data-execution_count="1">
+<div id="f6029d40" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> 条件式:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> 条件式:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    繰り返し処理</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>もしくは、</p>
-<div id="7f4302bb" class="cell" data-execution_count="2">
+<div id="8ebcfe81" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> 変数名 <span class="kw">in</span> イテラルオブジェクト:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> 条件式:</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
@@ -305,7 +311,7 @@ div.csl-indent {
 </div>
 <p>で処理をする。</p>
 <p>例えば、1～100の値を加算し、合計値が1000を超えたときにループ終了する例です。</p>
-<div id="4a677501" class="cell" data-execution_count="3">
+<div id="ab2cae60" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">101</span>):</span>
@@ -330,14 +336,14 @@ div.csl-indent {
 </figure>
 </div>
 <p>基本構文は、以下のようになる。</p>
-<div id="4a8efeff" class="cell" data-execution_count="4">
+<div id="12dfbb3e" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> 変数名 <span class="kw">in</span> イテラブルオブジェクト :</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> 条件式 :</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    繰り返し処理</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>もしくは</p>
-<div id="4840c9b4" class="cell" data-execution_count="5">
+<div id="a9c65ede" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> 条件式１:</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> 条件式２:</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
@@ -349,7 +355,7 @@ div.csl-indent {
 </figure>
 </div>
 <p>例えば、1～100の間で偶数地のみ加算し、その合計値を求めたいとき</p>
-<div id="52dfc813" class="cell" data-execution_count="6">
+<div id="7f3754c6" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">101</span>):</span>
@@ -367,7 +373,7 @@ div.csl-indent {
 <section id="ループでの終了処理" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="ループでの終了処理"><span class="header-section-number">7.3</span> ループでの終了処理</h2>
 <p><code>while</code>や<code>for</code>文でも、<code>else</code>が使用できる。 この時の<code>else</code>節は、<strong>breakせずにループを終了した際に実行する処理</strong> を示す。</p>
-<div id="c6e8df39" class="cell" data-execution_count="7">
+<div id="ae2dbac9" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>station <span class="op">=</span> [<span class="st">"東京"</span>, <span class="st">"品川"</span>, <span class="st">"新横浜"</span>, <span class="st">"名古屋"</span>, <span class="st">"京都"</span>, <span class="st">"新大阪"</span>]</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> station:</span>
@@ -388,7 +394,7 @@ div.csl-indent {
 </div>
 </div>
 <p>では、<code>×</code>を真ん中に入れてみよう</p>
-<div id="3005c161" class="cell" data-execution_count="8">
+<div id="4163fef6" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>station <span class="op">=</span> [<span class="st">"東京"</span>, <span class="st">"品川"</span>, <span class="st">"新横浜"</span>, <span class="st">"×"</span>, <span class="st">"名古屋"</span>, <span class="st">"京都"</span>, <span class="st">"新大阪"</span>]</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> station:</span>
@@ -411,7 +417,7 @@ div.csl-indent {
 <p>ネストされた状態のループ内で、<code>break</code>や<code>continue</code>をすると、内側のループのみを脱出します。すなわち、break一つにつき、１ループ脱することが出来るということである。</p>
 <p>例として<span class="citation" data-cites="yamada2020">(<a href="#ref-yamada2020" role="doc-biblioref">山田 2020年</a>)</span>の例を引用する。</p>
 <p>九九表をつくる。ただし、各段50を超えたら表示しないものとする。</p>
-<div id="aa83897d" class="cell" data-execution_count="9">
+<div id="c44b6bbc" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>):</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>):</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> i <span class="op">*</span> j</span>
@@ -431,8 +437,8 @@ div.csl-indent {
 9 18 27 36 45 </code></pre>
 </div>
 </div>
-<p>では、積が50を一度でも超えたら、表の出力自体停止するものとする。</p>
-<div id="0775886e" class="cell" data-execution_count="10">
+<p>では、積が50を一度でも超えたら、表の出力を途中停止するものとする。</p>
+<div id="88405834" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>):</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> i <span class="op">*</span> j</span>
@@ -868,13 +874,13 @@ div.csl-indent {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./2pyb.html" class="pagination-link" aria-label="制御構文２ 繰り返し処理">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">制御構文２ 繰り返し処理</span></span>
+      <a href="./2pyb.html" class="pagination-link" aria-label="繰り返し処理">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">繰り返し処理</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="Python勉強会 参考文献">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./2pyd.html" class="pagination-link" aria-label="例外処理">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">例外処理</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

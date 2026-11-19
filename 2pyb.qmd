@@ -1,5 +1,5 @@
 ---
-title: "制御構文２ 繰り返し処理"
+title: "繰り返し処理"
 subtitle: "Python勉強会"
 author: とりけらとっぷす
 format: 
