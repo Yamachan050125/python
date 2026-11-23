@@ -21,6 +21,7 @@ book:
         - 3pya.qmd 
         - 3pyb.qmd
         - 3pyc.qmd
+        - 3pyd.qmd
     - references.qmd
 
 

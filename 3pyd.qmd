@@ -1,0 +1,78 @@
+---
+title: "関数３　ユーザー定義関数（２）"
+subtitle: "Python勉強会"
+author: とりけらとっぷす
+format: 
+  html: 
+    toc: true
+    number-sections: true
+lang: ja
+bibliography: references/python.bib
+---
+
+## 複数の戻り値
+
+関数の値から複数の値を返したいという場合は、戻り値をタプルにして束ねて返す[@yamada2020]
+
+```{python}
+def get_max_min(*args):
+    return(max(args), min(args))
+
+max_v, min_v = get_max_min(15, 7.5, 108, -10)
+print(max_v)
+print(min_v)
+```
+
+## 再帰関数
+
+**再帰関数**：自分自身を呼び出す関数　階乗計算のように同種の手続きを繰り返し呼び出す処理を短いコードで表現できる。
+
+階乗を求める`fuctorial`関数の例で示す。
+
+```{python}
+def factorial(num):
+    if num !=0:
+        return num * factorial(num - 1)
+    return 1
+
+print(factorial(5))
+```
+
+## 高階関数
+
+**高階関数**：関数を引数もしくは戻り値として扱う関数のこと[@yamada2020]
+
+
+## 無名関数（ラムダ式）
+
+ラムダ式：名前を持たない使い捨て関数　一度きりしか使用しない関数　シンプルな関数を一時的に使用したい場合に便利
+
+基本構文は以下のとおり
+
+```{python}
+#| eval: false
+変数1 = lambda 引数１,引数２: 式
+print(変数1(代入する値１,代入する値２,…))
+```
+
+**例**
+
+```{python}
+double = lambda num : num*2
+print(double(2))
+```
+
+![@kanda より](https://kanda-it-school-kensyu.com/wp-content/uploads/SnapCrab_NoName_2022-7-4_20-24-2_No-00.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
