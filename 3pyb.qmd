@@ -32,14 +32,57 @@ import math
 print(math.floor(1.34))
 ```
 
+```{python}
+#| eval: false
+#importの書式
+
+import モジュール名 as 省略名
+
+#省略名を用いて書くこともできる
+
+print(mh.floor(1.34))
+```
+
+### モジュールの関数
+
+モジュールを介した関数は複数種類がある。
+
+#### `math`モジュール
+
+|関数名|内容|
+|...|...|
+|`floor`|引数に指定した値の小数点以下を切り捨てた整数を返す|
+|`ceil`|引数に指定した浮動小数点数以上で最小の整数を返す|
+|`sqrt`|引数に指定した値の平方根を返す|
+
+```{python}
+import math as mh
+
+print(mh.floor(2.4))
+print(mh.ceil(2.4))
+print(mh.sqrt(9))
+```
 
 
+#### `random`モジュール
+
+計算を行う際、ランダムな値を取得するのに使用するモジュール
 
 
+|関数名|内容|
+|--|--|
+|`random`|０～１の間の浮動小数点数の乱数を返す|
+|`uniform`|指定した範囲の乱数（`float`型）を返す|
+|`randint`|指定した範囲の整数の乱数（`int`型）を返す|
 
 
+```{python}
+import random as rd
 
-
+print(rd.random())
+print(rd.uniform(4, 10))
+print(rd.randint(4, 10))
+```
 
 
 
