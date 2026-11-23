@@ -10,7 +10,7 @@ book:
         - 1pya.qmd
         - 1pyb.qmd
         - 1pyc.qmd
-    - part: "条件分岐 関数"
+    - part: "条件分岐"
       chapters: 
         - 2pya.qmd
         - 2pyb.qmd
