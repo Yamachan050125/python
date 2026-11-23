@@ -472,7 +472,7 @@
     "href": "index.html#関数",
     "title": "Python勉強会 資料置き場",
     "section": "関数",
-    "text": "関数\n関数１\n関数２\n関数３　ユーザー定義関数",
+    "text": "関数\n関数１ 型\n関数２　モジュール\n関数３　ユーザー定義関数１\n関数４　ユーザー定義関数２",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python勉強会 資料置き場</span>"
     ]
@@ -596,6 +596,50 @@
     "crumbs": [
       "関数",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>関数３　ユーザー定義関数（１）</span>"
+    ]
+  },
+  {
+    "objectID": "3pyd.html",
+    "href": "3pyd.html",
+    "title": "12  関数３　ユーザー定義関数（２）",
+    "section": "",
+    "text": "12.1 複数の戻り値\n関数の値から複数の値を返したいという場合は、戻り値をタプルにして束ねて返す(山田 2020年)\ndef get_max_min(*args):\n    return(max(args), min(args))\n\nmax_v, min_v = get_max_min(15, 7.5, 108, -10)\nprint(max_v)\nprint(min_v)\n\n108\n-10",
+    "crumbs": [
+      "関数",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>関数３　ユーザー定義関数（２）</span>"
+    ]
+  },
+  {
+    "objectID": "3pyd.html#再帰関数",
+    "href": "3pyd.html#再帰関数",
+    "title": "12  関数３　ユーザー定義関数（２）",
+    "section": "12.2 再帰関数",
+    "text": "12.2 再帰関数\n再帰関数：自分自身を呼び出す関数　階乗計算のように同種の手続きを繰り返し呼び出す処理を短いコードで表現できる。\n階乗を求めるfuctorial関数の例で示す。\n\ndef factorial(num):\n    if num !=0:\n        return num * factorial(num - 1)\n    return 1\n\nprint(factorial(5))\n\n120",
+    "crumbs": [
+      "関数",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>関数３　ユーザー定義関数（２）</span>"
+    ]
+  },
+  {
+    "objectID": "3pyd.html#高階関数",
+    "href": "3pyd.html#高階関数",
+    "title": "12  関数３　ユーザー定義関数（２）",
+    "section": "12.3 高階関数",
+    "text": "12.3 高階関数\n高階関数：関数を引数もしくは戻り値として扱う関数のこと(山田 2020年)",
+    "crumbs": [
+      "関数",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>関数３　ユーザー定義関数（２）</span>"
+    ]
+  },
+  {
+    "objectID": "3pyd.html#無名関数ラムダ式",
+    "href": "3pyd.html#無名関数ラムダ式",
+    "title": "12  関数３　ユーザー定義関数（２）",
+    "section": "12.4 無名関数（ラムダ式）",
+    "text": "12.4 無名関数（ラムダ式）\nラムダ式：名前を持たない使い捨て関数　一度きりしか使用しない関数　シンプルな関数を一時的に使用したい場合に便利\n基本構文は以下のとおり\n\n変数1 = lambda 引数１,引数２: 式\nprint(変数1(代入する値１,代入する値２,…))\n\n例\n\ndouble = lambda num : num*2\nprint(double(2))\n\n4\n\n\n\n\n\n神田ITスクール (2010年) より\n\n\n\n\n\n\n山田祥寛. 2020年. 独習Python = Teach Yourself Python. 翔泳社.\n\n\n神田ITスクール. 2010年. Python入門テキスト 第8章 条件処理.",
+    "crumbs": [
+      "関数",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>関数３　ユーザー定義関数（２）</span>"
     ]
   }
 ]
