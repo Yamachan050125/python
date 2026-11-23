@@ -244,11 +244,9 @@ if not 条件式:
 
 というのは、論理演算子は、時として思わぬバグの温床となる。特に、否定＋論理演算子は、一般的に混乱の元であり、なるべく肯定表現へ置き換えるが、このとき使用するのが、**ド・モルガンの法則**である。
 
-$$
-\overline{A \cup B} = \overline{A} \cap \overline{B}
+$\overline{A \cup B} = \overline{A} \cap \overline{B}$
 
-\overline{A \cap B} = \overline{A} \cup \overline{B}
-$$
+$\overline{A \cap B} = \overline{A} \cup \overline{B}$
 
 コードで書くなら
 ```{python}

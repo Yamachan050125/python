@@ -131,6 +131,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -143,7 +172,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2pya.html">第２回 条件分岐 関数</a></li><li class="breadcrumb-item"><a href="./2pya.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">条件分岐</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2pya.html">条件分岐 関数</a></li><li class="breadcrumb-item"><a href="./2pya.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">条件分岐</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -172,7 +201,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">第１回 Pythonとは 基本文法 演算子</span></a>
+ <span class="menu-text">Pythonとは 基本文法 演算子</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -201,7 +230,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">第２回 条件分岐 関数</span></a>
+ <span class="menu-text">条件分岐 関数</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -233,10 +262,27 @@ div.csl-indent {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">関数</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3pya.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">関数</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span></a>
   </div>
 </li>
     </ul>
@@ -265,7 +311,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2pya.html">第２回 条件分岐 関数</a></li><li class="breadcrumb-item"><a href="./2pya.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">条件分岐</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2pya.html">条件分岐 関数</a></li><li class="breadcrumb-item"><a href="./2pya.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">条件分岐</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">条件分岐</span></h1>
 <p class="subtitle lead">Python勉強会</p>
@@ -306,7 +352,7 @@ div.csl-indent {
 <li>ストロベリージャム</li>
 </ul>
 <p>パンは使用するとしても、<strong>どれをつけるかは判断が必要になる</strong>。これが条件文である。</p>
-<div id="2d62561f" class="cell" data-execution_count="1">
+<div id="2d0d3708" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>もし, サンドイッチを作るならば：</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    パンを取得</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>次に, ピーナッツバターの種類を選択.</span>
@@ -331,14 +377,14 @@ div.csl-indent {
 <section id="単純分岐" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="単純分岐"><span class="header-section-number">5.1.1</span> 単純分岐</h3>
 <p>まずは、「違うならば…」が１つしかないものから始めよう。構文は以下の通り。</p>
-<div id="c708a440" class="cell" data-execution_count="2">
+<div id="4043c233" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> 条件式:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    条件式がTrueのときに実行する処理</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    条件式がFalseのときに実行する処理</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>では、変数<code>i</code>が、<code>3</code>であるか否かを判定するコードを書いてみよう。</p>
-<div id="d4a90e65" class="cell" data-execution_count="3">
+<div id="b454cbff" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#もしiが3のとき</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">3</span> <span class="co">#i=3と定義する</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -350,7 +396,7 @@ div.csl-indent {
 <pre><code>iは3じゃボケ！！！</code></pre>
 </div>
 </div>
-<div id="0db14d1a" class="cell" data-execution_count="4">
+<div id="6937b59d" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#もしiが3でないとき</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">5</span> <span class="co">#i=5と定義する</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -397,14 +443,14 @@ div.csl-indent {
 <li>ヘッダーを識別するキーワード（<code>if</code>, <code>else</code>など）で始まり、コロン<code>:</code>で終わること</li>
 </ul>
 <p>ブロックを示すインデントは<strong>半角空白4つ</strong>を使おう。<code>Tab</code>キーはでも可能であるが、エディタによって表示が違うので、<strong><code>Tab</code>キーは原則使用しない</strong>こと。</p>
-<div id="b447e869" class="cell" data-execution_count="5">
+<div id="42eeaf8b" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> i <span class="op">==</span> <span class="dv">10</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">----</span><span class="bu">print</span>(<span class="st">"iは10である"</span>) <span class="co">#-は半角空白に置き換える</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 <p>なお、<code>else</code>を省略した場合、<code>if</code>文で書いた条件時<strong>だけ</strong>、ブロックの内容が実行される。</p>
-<div id="53889be8" class="cell" data-execution_count="6">
+<div id="b2d3d12d" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"3だぜ( ｰ`дｰ´)ｷﾘｯ"</span>)</span>
@@ -419,7 +465,7 @@ div.csl-indent {
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="多岐分岐"><span class="header-section-number">5.1.2</span> 多岐分岐</h3>
 <p>多岐分岐は、「も～なら」が何個もある場合の文を作ることができる。その際は、<code>elif</code>を用いる。</p>
 <p>構文は以下の通り</p>
-<div id="8f39a7e1" class="cell" data-execution_count="7">
+<div id="254718e6" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> 条件式１:</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    条件式１がTrueの時に実行する処理</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> 条件式２:</span>
@@ -430,7 +476,7 @@ div.csl-indent {
 </div>
 <p><code>elif</code>は、条件の数だけ増やせる。すなわち、<code>if</code>は１つ且つ一番最初のみ使用。増やしたいときは、<code>elif</code>を使用する。</p>
 <p>変数<code>i</code>が、<code>3</code>以上であるか、<code>4</code>以上であるか否かを判定するコードを書いてみよう。</p>
-<div id="49541a5e" class="cell" data-execution_count="8">
+<div id="20a2ae0f" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">3</span>:</span>
@@ -454,7 +500,7 @@ div.csl-indent {
 </div>
 <div class="callout-body-container callout-body">
 <p>ここで大事なのは、<code>if</code>文は、<strong>複数の条件に合致しても、実行されるブロックは最初に合致した１つ目のブロックのみ</strong>であることに注意しなければならないことである。そのため、上記例では、</p>
-<div id="e22faf4b" class="cell" data-execution_count="9">
+<div id="75f80e0a" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> i <span class="op">&gt;</span> <span class="dv">4</span>:</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"iは2より大きいよ"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -477,7 +523,7 @@ div.csl-indent {
 <figcaption><span class="citation" data-cites="kanda">神田ITスクール (<a href="#ref-kanda" role="doc-biblioref">2010年</a>)</span> より</figcaption>
 </figure>
 </div>
-<div id="a4044e56" class="cell" data-execution_count="10">
+<div id="905ae089" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -497,7 +543,7 @@ div.csl-indent {
 <section id="論理積and" class="level3" data-number="5.1.4">
 <h3 data-number="5.1.4" class="anchored" data-anchor-id="論理積and"><span class="header-section-number">5.1.4</span> 論理積<code>and</code></h3>
 <p>論理演算子<code>and</code>（演算子の左辺と右辺の値がともに「true」の場合だけ、全体がtrue）も使用可能</p>
-<div id="f2db5043" class="cell" data-execution_count="11">
+<div id="a2536d2e" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> 条件式１ <span class="kw">and</span> 条件式２:</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    処理</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -506,7 +552,7 @@ div.csl-indent {
 <section id="論理和or" class="level3" data-number="5.1.5">
 <h3 data-number="5.1.5" class="anchored" data-anchor-id="論理和or"><span class="header-section-number">5.1.5</span> 論理和<code>or</code></h3>
 <p>論理演算子<code>or</code>（演算子の左辺または右辺の値が少なくとも1つがtrueの場合に、全体がtrue）も使用可能</p>
-<div id="71fcf28a" class="cell" data-execution_count="12">
+<div id="0cf32fa8" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> 条件式１ <span class="kw">or</span> 条件式２:</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    処理</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -515,7 +561,7 @@ div.csl-indent {
 <section id="論理否定-not" class="level3" data-number="5.1.6">
 <h3 data-number="5.1.6" class="anchored" data-anchor-id="論理否定-not"><span class="header-section-number">5.1.6</span> 論理否定 <code>not</code></h3>
 <p>否定文にしたいときは、<code>not</code>を使用する。</p>
-<div id="585f1b20" class="cell" data-execution_count="13">
+<div id="c24a32d4" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> 条件式:</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    処理</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -531,17 +577,17 @@ div.csl-indent {
 <div class="callout-body-container callout-body">
 <p>ただし、条件式からは、<strong>なるべく否定表現を使用しない</strong>ことが重要である。</p>
 <p>というのは、論理演算子は、時として思わぬバグの温床となる。特に、否定＋論理演算子は、一般的に混乱の元であり、なるべく肯定表現へ置き換えるが、このとき使用するのが、<strong>ド・モルガンの法則</strong>である。</p>
-<p>$$ = </p>
-<p> = $$</p>
+<p><span class="math inline">\(\overline{A \cup B} = \overline{A} \cap \overline{B}\)</span></p>
+<p><span class="math inline">\(\overline{A \cap B} = \overline{A} \cup \overline{B}\)</span></p>
 <p>コードで書くなら</p>
-<div id="cd9ae6c4" class="cell" data-execution_count="14">
+<div id="8627fb63" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">not</span> A <span class="kw">and</span> <span class="kw">not</span> B <span class="op">=</span> <span class="kw">not</span>(A <span class="kw">or</span> B)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">not</span> A <span class="kw">or</span> <span class="kw">not</span> B <span class="op">=</span> <span class="kw">not</span>(A <span class="kw">and</span> B)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>である。</p>
 <p>例えば、</p>
-<div id="5062958d" class="cell" data-execution_count="15">
+<div id="43e6cd4e" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#AもBもTrueでない</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> A <span class="kw">and</span> <span class="kw">not</span> B:</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">~</span></span>
