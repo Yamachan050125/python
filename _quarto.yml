@@ -20,6 +20,7 @@ book:
       chapters: 
         - 3pya.qmd 
         - 3pyb.qmd
+        - 3pyc.qmd
     - references.qmd
 
 

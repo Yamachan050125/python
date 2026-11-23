@@ -91,7 +91,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./3pyc.html" rel="next">
 <link href="./3pya.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -201,7 +201,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">条件分岐 関数</span></a>
+ <span class="menu-text">条件分岐</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -254,12 +254,18 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">関数２　モジュール</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3pyc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">関数３　ユーザー定義関数</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span></a>
   </div>
 </li>
     </ul>
@@ -273,7 +279,10 @@ div.csl-indent {
    
   <ul>
   <li><a href="#モジュールライブラリ" id="toc-モジュールライブラリ" class="nav-link active" data-scroll-target="#モジュールライブラリ"><span class="header-section-number">10.1</span> モジュール・ライブラリ</a></li>
-  <li><a href="#インポート" id="toc-インポート" class="nav-link" data-scroll-target="#インポート"><span class="header-section-number">10.2</span> インポート</a></li>
+  <li><a href="#インポート" id="toc-インポート" class="nav-link" data-scroll-target="#インポート"><span class="header-section-number">10.2</span> インポート</a>
+  <ul class="collapse">
+  <li><a href="#モジュールの関数" id="toc-モジュールの関数" class="nav-link" data-scroll-target="#モジュールの関数"><span class="header-section-number">10.2.1</span> モジュールの関数</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -322,11 +331,76 @@ div.csl-indent {
 <h2 data-number="10.2" class="anchored" data-anchor-id="インポート"><span class="header-section-number">10.2</span> インポート</h2>
 <p>モジュールに属する型・関数を利用するには、まず対象のモジュールの読み込みは、<code>import</code>命令で可能である。</p>
 <p>例えば、数学演算をするには、<code>math</code>モジュールをインポートする。小数点を切り捨てる関数である<code>floor</code>を用いた例を示す。</p>
-<div id="d1792cb4" class="cell" data-execution_count="1">
+<div id="6b3c3cab" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(<span class="fl">1.34</span>))</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1</code></pre>
+</div>
+</div>
+<div id="a052b990" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#importの書式</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> モジュール名 <span class="im">as</span> 省略名</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#省略名を用いて書くこともできる</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mh.floor(<span class="fl">1.34</span>))</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="モジュールの関数" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="モジュールの関数"><span class="header-section-number">10.2.1</span> モジュールの関数</h3>
+<p>モジュールを介した関数は複数種類がある。</p>
+<section id="mathモジュール" class="level4" data-number="10.2.1.1">
+<h4 data-number="10.2.1.1" class="anchored" data-anchor-id="mathモジュール"><span class="header-section-number">10.2.1.1</span> <code>math</code>モジュール</h4>
+<p>|関数名|内容| |…|…| |<code>floor</code>|引数に指定した値の小数点以下を切り捨てた整数を返す| |<code>ceil</code>|引数に指定した浮動小数点数以上で最小の整数を返す| |<code>sqrt</code>|引数に指定した値の平方根を返す|</p>
+<div id="7117a706" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math <span class="im">as</span> mh</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mh.floor(<span class="fl">2.4</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mh.ceil(<span class="fl">2.4</span>))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mh.sqrt(<span class="dv">9</span>))</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2
+3
+3.0</code></pre>
+</div>
+</div>
+</section>
+<section id="randomモジュール" class="level4" data-number="10.2.1.2">
+<h4 data-number="10.2.1.2" class="anchored" data-anchor-id="randomモジュール"><span class="header-section-number">10.2.1.2</span> <code>random</code>モジュール</h4>
+<p>計算を行う際、ランダムな値を取得するのに使用するモジュール</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>関数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>random</code></td>
+<td>０～１の間の浮動小数点数の乱数を返す</td>
+</tr>
+<tr class="even">
+<td><code>uniform</code></td>
+<td>指定した範囲の乱数（<code>float</code>型）を返す</td>
+</tr>
+<tr class="odd">
+<td><code>randint</code></td>
+<td>指定した範囲の整数の乱数（<code>int</code>型）を返す</td>
+</tr>
+</tbody>
+</table>
+<div id="3f85a145" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random <span class="im">as</span> rd</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rd.random())</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rd.uniform(<span class="dv">4</span>, <span class="dv">10</span>))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rd.randint(<span class="dv">4</span>, <span class="dv">10</span>))</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.7629983289095689
+5.082558980795836
+8</code></pre>
 </div>
 </div>
 
@@ -336,6 +410,8 @@ div.csl-indent {
 神田ITスクール. 2010年. <em>Python入門テキスト 第8章 条件処理</em>.
 </div>
 </div>
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -746,8 +822,8 @@ div.csl-indent {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="Python勉強会 参考文献">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Python勉強会 参考文献</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./3pyc.html" class="pagination-link" aria-label="関数３　ユーザー定義関数">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">関数３　ユーザー定義関数</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
